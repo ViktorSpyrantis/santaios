@@ -9,10 +9,27 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { CategoryButton } from '../components/category-button/category-button';
+import { Dashboard } from '../pages/dashboard/dashboard';
+import { CategoryPage } from "../pages/category-page/category-page";
+
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  declarations: [
+    AppComponent,
+    CategoryButton,
+    Dashboard,
+    CategoryPage
+  ],
+  entryComponents: [
+    CategoryButton,
+    Dashboard,
+    CategoryPage
+  ],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -20,4 +37,5 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {}
