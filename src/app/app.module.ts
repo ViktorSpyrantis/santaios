@@ -12,18 +12,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { CategoryButton } from '../components/category-button/category-button';
 import { Dashboard } from '../pages/dashboard/dashboard';
 import { CategoryPage } from "../pages/category-page/category-page";
+import { CustomHeader } from './custom-header/custom-header'
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoryButton,
     Dashboard,
-    CategoryPage
+    CategoryPage,
+    CustomHeader
   ],
   entryComponents: [
     CategoryButton,
     Dashboard,
-    CategoryPage
+    CategoryPage,
+    CustomHeader
   ],
   imports: [
     BrowserModule, 
