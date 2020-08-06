@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['custom-header.scss']
 })
 export class CustomHeader {
+
+  headerTitle1: string = 'ΚΡΕΑΤΑΓΟΡΑ ';
+  headerTitle2: string = 'Ο ΣΑΝΤΑΙΟΣ';
+
   constructor() {}
 }

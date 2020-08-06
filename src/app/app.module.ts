@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CategoryButton } from '../components/category-button/category-button';
 import { Dashboard } from '../pages/dashboard/dashboard';
 import { CategoryPage } from "../pages/category-page/category-page";
-import { CustomHeader } from './custom-header/custom-header'
+import { CustomHeader } from '../components/custom-header/custom-header'
 
 @NgModule({
   declarations: [
