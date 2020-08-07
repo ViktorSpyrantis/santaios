@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['category-button.scss'],
 })
 export class CategoryButton {
+  private forward_icon: string = "assets/icon/arrow_red.svg"; 
 
   @Input() name: string;
 

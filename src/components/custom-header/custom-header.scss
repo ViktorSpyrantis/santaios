@@ -1,16 +1,20 @@
 
-.container {
+#all {
   text-align: center;
-  .title1 {
-    font-size: 6vw;
-    font-weight: 700;
-    color: #8f4012;
-    margin: 0;
-  }
-  .title2 {
-    font-size: 65.4w;
-    font-weight: 700;
-    color: #8f4012;
-    margin: 0;
+  border-bottom: 0.5vw solid rgb(163, 157, 157);
+  // .title1 {
+  //   font-size: 6vw;
+  //   font-weight: 700;
+  //   color: #8f4012;
+  //   margin: 0;
+  // }
+  // .title2 {
+  //   font-size: 65.4w;
+  //   font-weight: 700;
+  //   color: #8f4012;
+  //   margin: 0;
+  // }
+  .logo {
+    width: 15vw;
   }
 }

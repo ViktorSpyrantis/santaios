@@ -9,6 +9,7 @@ export class CustomHeader {
 
   headerTitle1: string = 'ΚΡΕΑΤΑΓΟΡΑ ';
   headerTitle2: string = 'Ο ΣΑΝΤΑΙΟΣ';
+  logo: string = "assets/icon/logo_2.png";
 
   constructor() {}
 }

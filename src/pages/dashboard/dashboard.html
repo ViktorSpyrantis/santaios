@@ -1,1 +1,5 @@
-<div (click)="openCat()">DASHBOARFD</div>
+<div id="dashboard" [ngStyle]="{'background-image': 'url(' + bgImage + ')'}">
+  <category-button *ngFor="let cat of productsList | keyvalue" [name]="cat.value" (click)="openCategory(cat.key)">
+  </category-button>
+
+</div>
