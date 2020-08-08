@@ -1,7 +1,11 @@
 <div id="category-button">
     <div class="element-container">
-        <p class="name"><u>{{name}}</u></p>
-        <!-- <ion-icon name="chevron-forward-outline" class="forward-icon"></ion-icon> -->
+        
+        <div>
+            <img src="{{icon}}" [ngClass]="{'category-icon-height': iconByHeight, 'category-icon-width': !iconByHeight}">
+            <p class="name">{{text}}</p>
+            
+        </div>
         <img src="{{forward_icon}}" class="arrow-icon">
     </div>
    

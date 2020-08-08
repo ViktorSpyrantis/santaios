@@ -1,5 +1,8 @@
 <div id="dashboard" [ngStyle]="{'background-image': 'url(' + bgImage + ')'}">
-  <category-button *ngFor="let cat of productsList | keyvalue" [name]="cat.value" (click)="openCategory(cat.key)">
-  </category-button>
+  <div *ngIf="loadingComplete" class="button-container">
+    <category-button *ngFor="let cat of categoryList" [text]="cat.greek" [icon]="cat.icon" 
+      [iconByHeight]="cat.icon_by_height" (click)="openCategory(cat.key)">
+    </category-button>
+  </div>
 
 </div>
