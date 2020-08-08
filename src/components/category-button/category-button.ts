@@ -8,7 +8,9 @@ import { Component, Input } from '@angular/core';
 export class CategoryButton {
   private forward_icon: string = "assets/icon/arrow_red.svg"; 
 
-  @Input() name: string;
+  @Input() text: string;
+  @Input() icon: string;
+  @Input() iconByHeight: boolean;
 
   constructor(
   ) {}
