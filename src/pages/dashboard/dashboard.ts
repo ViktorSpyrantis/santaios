@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { GoogleDriveHandler } from 'src/providers/googleDriveHandler';
+import { ProductCategories } from 'src/providers/productCategories';
+import { ProductSheet } from 'src/providers/productSheets'
 
 @Component({
   selector: 'dashboard',
@@ -9,12 +12,13 @@ import { Router, NavigationExtras } from '@angular/router';
 export class Dashboard {
 
   categoryList = [];
-  private productsList = productCategories;
+  // private productsList = ProductCategories;
   bgImage: string = "assets/img/bg.png"
   loadingComplete = false;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private driveHandler: GoogleDriveHandler
   ) {
 
   }
@@ -27,47 +31,46 @@ export class Dashboard {
 
     let navigationExtras: NavigationExtras = {
       queryParams: {
-        category: JSON.stringify(categoryName)
+        sheet: categoryName
       }
     };
-    console.log(navigationExtras)
     this.router.navigate(['/category'], navigationExtras)
   }
 
   private initCategoryList() {
     this.categoryList = [
       {
-        id: 'BEEF',
+        id: ProductSheet.BEEF,
         greek: 'ΜΟΣΧΑΡΙΣΙΟ',
         icon: 'cow.svg',
         icon_by_height: true
       },
       {
-        id: 'PORK',
+        id: ProductSheet.PORK,
         greek: 'ΧΟΙΡΙΝΟ',
         icon: 'pig.svg',
         icon_by_height: true
       },
       {
-        id: 'CHICKEN',
+        id: ProductSheet.CHICKEN,
         greek: 'ΚΟΤΟΠΟΥΛΟ',
         icon: 'chicken.svg',
         icon_by_height: false
       },
       {
-        id: 'LAMB',
+        id: ProductSheet.LAMB,
         greek: 'ΑΜΝΟΕΡΙΦΙΑ',
         icon: 'lamb.svg',
         icon_by_height: true
       },
       {
-        id: 'PREPARATIONS',
+        id: ProductSheet.PREPARATIONS,
         greek: 'ΠΑΡΑΣΚΕΥΑΣΜΑΤΑ',
         icon: 'kebab.svg',
         icon_by_height: false
       },
       {
-        id: 'DRY_AGED',
+        id: ProductSheet.DRY_AGED,
         greek: 'DRY AGED',
         icon: 'steak.svg',
         icon_by_height: true
@@ -80,16 +83,3 @@ export class Dashboard {
     this.loadingComplete = true;
   }
 }
-
-
-
-export enum productCategories {
-  BEEF = 'BEEF',
-  PORK = 'PORK',
-  CHICKEN = 'CHICKEN',
-  LAMB = 'LAMB',
-  PREPARATIONS = 'PREPARATIONS',
-  DRY_AGED = 'DRY_AGED'
-}
-
-

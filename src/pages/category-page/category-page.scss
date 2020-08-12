@@ -1,0 +1,22 @@
+.prod-container {
+  margin: 0 5.5vw 0 5.5vw;
+  .prod-row {
+    text-align: center;
+    .prod-col {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      .prod-img {
+        width: 35vw;
+      }
+      .prod-name {
+        font-size: 3.6vw;
+        font-weight: 500;
+      }
+      .prod-price {
+        font-size: 3.8vw;
+        font-weight: 800;
+      }
+    }
+  }
+}

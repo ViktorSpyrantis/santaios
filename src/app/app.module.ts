@@ -12,7 +12,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { CategoryButton } from '../components/category-button/category-button';
 import { Dashboard } from '../pages/dashboard/dashboard';
 import { CategoryPage } from "../pages/category-page/category-page";
-import { CustomHeader } from '../components/custom-header/custom-header'
+import { CustomHeader } from '../components/custom-header/custom-header';
+import { GoogleDriveHandler } from '../providers/googleDriveHandler'
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { CustomHeader } from '../components/custom-header/custom-header'
     CategoryButton,
     Dashboard,
     CategoryPage,
-    CustomHeader
+    CustomHeader,
+
   ],
   entryComponents: [
     CategoryButton,
@@ -31,12 +34,16 @@ import { CustomHeader } from '../components/custom-header/custom-header'
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
-    AppRoutingModule
+    AppRoutingModule,
+    // HttpHandler,
+    HttpClientModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    GoogleDriveHandler,
+    HttpClient
   ],
   bootstrap: [AppComponent]
 })

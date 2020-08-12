@@ -1,1 +1,13 @@
-<div>CATEGPORY</div>
+<ion-content padding>
+  <h3>TITLE</h3>
+
+  <ion-grid class="prod-container">
+    <ion-row class="prod-row">
+      <ion-col class="prod-col" size="5" *ngFor="let prod of products">
+        <img class="prod-img" src="{{prod.image}}">
+        <p class="prod-name">{{prod.name}}</p>
+        <p class="prod-price">{{prod.pricePerWeight}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,43 +1,33 @@
 
 #category-button {
-    width: 75vw;
+    width: 77vw;
     height: 14vw;
     margin: 5vw auto 0 auto;
     background-color: white;
-    // display: flex;
-    // justify-content: space-between;
-    // border: 0.4vw solid #f89513;
     border-radius: 4vw;
-    // text-align: center;
     .element-container {
-        // display: inline-block;
-        // vertical-align: middle;
-        // margin-top: auto;
-        // margin-bottom: auto;
-        // display: flex;
-        // justify-content: space-between;
-        // padding-top: 2vw;
         height: inherit;
         display: flex;
         justify-content: space-between;
         div {
             display: flex;
             justify-content: space-between;
-            .category-icon-height {
-                display: inline-block;
-                height: 6vw;
-                padding-left: 1vw;
-                vertical-align: middle;
-                margin-top: auto;
-                margin-bottom: auto;
-            }
-            .category-icon-width {
-                display: inline-block;
-                width: 8vw;
-                padding-left: 1vw;
-                vertical-align: middle;
-                margin-top: auto;
-                margin-bottom: auto;
+            .icon-wrapper {
+                width: 12vw;
+                text-align: center;
+                display: flex;
+                .category-icon-height {
+                    display: inline-block;
+                    height: 6vw;
+                    vertical-align: middle;
+                    margin: auto;
+                }
+                .category-icon-width {
+                    display: inline-block;
+                    width: 8vw;
+                    vertical-align: middle;
+                    margin: auto;
+                }
             }
             .name {
                 min-width: 50vw;
@@ -46,24 +36,16 @@
                 font-size: 6vw;
                 font-weight: 900;
                 color: var(--kos-green);
-                padding-left: 1vw;
                 vertical-align: middle;
                 margin-top: auto;
                 margin-bottom: auto;
                 // font-family: "Arial", Times, serif;
             }
-            
         }
         .arrow-icon {
-            // display: inline-block;
             float: right;
-            // margin-left: auto;
             width: 4vw;
-            padding-right: 1vw;
-            // vertical-align: middle;
-            // margin-top: auto;
-            // margin-bottom: auto;
+            margin-right: 3vw;
         }
-     
     }
 }
