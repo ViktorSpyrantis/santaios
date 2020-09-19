@@ -25,5 +25,27 @@ export class GoogleDriveHandler {
     })
     return products;
   }
+  
+  public getProductCardInfo(file: Files): any {
+    let products = [];
+    console.log('$$$', file)
+    this.http.get('https://spreadsheets.google.com/feeds/cells/1iPS-nAjwo8tmOk6kyBGxbctByRCoCI7FISqZxkQufFk/3/public/full?alt=json').subscribe(data => {
+      for(let i=0; i<(data.feed.entry.length)/4; i++) {
+        products.push(
+          {
+            name: data.feed.entry[(i*4) + 0].content.$t,
+            pricePerWeight: data.feed.entry[(i*4) + 1].content.$t,
+            pricePerPiece: data.feed.entry[(i*4) + 2].content.$t,
+            image: data.feed.entry[(i*4) + 3].content.$t
+          }
+        )
+      }
+    })
+    return products;
+  }
+}
+
+export enum Files {
+  SUGGESTED = 'https://spreadsheets.google.com/feeds/cells/1iPS-nAjwo8tmOk6kyBGxbctByRCoCI7FISqZxkQufFk/3/public/full?alt=json'
 }
 

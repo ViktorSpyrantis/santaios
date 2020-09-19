@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { GoogleDriveHandler } from 'src/providers/googleDriveHandler';
+import { GoogleDriveHandler, Files } from 'src/providers/googleDriveHandler';
 import { ProductCategories } from 'src/providers/productCategories';
 import { ProductSheet } from 'src/providers/productSheets'
 
@@ -12,6 +12,13 @@ import { ProductSheet } from 'src/providers/productSheets'
 export class Dashboard {
 
   categoryList = [];
+  suggestedProducts = [];
+  // suggestedProducts: {
+  //   name: string,
+  //   pricePerWeight: string,
+  //   pricePerPiece: string,
+  //   image: string,
+  // }[];
   // private productsList = ProductCategories;
   bgImage: string = "assets/img/bg.png"
   logoBg: string = "assets/icon/logo_bg.svg"
@@ -26,6 +33,8 @@ export class Dashboard {
 
   ngOnInit() {
     this.initCategoryList();
+    this.initLists();
+    console.log('SUGGESTED PRODUCTS: ', this.suggestedProducts)
   }
 
   openCategory(categoryName: string) {
@@ -36,6 +45,10 @@ export class Dashboard {
       }
     };
     this.router.navigate(['/category'], navigationExtras)
+  }
+
+  private initLists() {
+    this.suggestedProducts = this.driveHandler.getProductCardInfo(Files.SUGGESTED)
   }
 
   private initCategoryList() {
@@ -66,7 +79,7 @@ export class Dashboard {
       },
       {
         id: ProductSheet.PREPARATIONS,
-        greek: 'ΠΑΡΑΣΚΕΥΑΣΜΑΤΑ',
+        greek: 'ΠΑΡ/ΑΣΜΑΤΑ',
         icon: 'kebab.svg',
         icon_by_height: false
       },

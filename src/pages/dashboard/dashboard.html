@@ -6,10 +6,15 @@
   </div>
 
 
-  <div *ngIf="loadingComplete" class="category-container">
+  <div *ngIf="loadingComplete" class="horizontal-scroll">
     <category-button *ngFor="let cat of categoryList" [name]="cat.greek" [icon]="cat.icon" 
        (click)="openCategory(cat.id)">
     </category-button>
   </div>
 
+  <div *ngIf="suggestedProducts" class="horizontal-scroll">
+    <product-card *ngFor="let prod of suggestedProducts" [name]="prod.name" [image]="prod.image" 
+       [price]="prod.pricePerWeight" (click)="openCategory(prod.id)">
+    </product-card>
+  </div>
 </div>
