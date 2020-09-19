@@ -1,51 +1,15 @@
 
 #category-button {
-    width: 77vw;
-    height: 14vw;
-    margin: 5vw auto 0 auto;
-    background-color: white;
-    border-radius: 4vw;
-    .element-container {
-        height: inherit;
-        display: flex;
-        justify-content: space-between;
-        div {
-            display: flex;
-            justify-content: space-between;
-            .icon-wrapper {
-                width: 12vw;
-                text-align: center;
-                display: flex;
-                .category-icon-height {
-                    display: inline-block;
-                    height: 6vw;
-                    vertical-align: middle;
-                    margin: auto;
-                }
-                .category-icon-width {
-                    display: inline-block;
-                    width: 8vw;
-                    vertical-align: middle;
-                    margin: auto;
-                }
-            }
-            .name {
-                min-width: 50vw;
-                display: inline-block;
-                margin: 0;
-                font-size: 6vw;
-                font-weight: 900;
-                color: var(--kos-green);
-                vertical-align: middle;
-                margin-top: auto;
-                margin-bottom: auto;
-                // font-family: "Arial", Times, serif;
-            }
-        }
-        .arrow-icon {
-            float: right;
-            width: 4vw;
-            margin-right: 3vw;
-        }
+    text-align: center;
+    display: inline-block;
+    width: 25vw;
+    .icon {
+        width: 22vw;
+    }
+
+    .name {
+        font-size: 2.8vw;
+        font-weight: 400;
+        color: #36454f;
     }
 }

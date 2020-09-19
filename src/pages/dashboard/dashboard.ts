@@ -14,6 +14,7 @@ export class Dashboard {
   categoryList = [];
   // private productsList = ProductCategories;
   bgImage: string = "assets/img/bg.png"
+  logoBg: string = "assets/icon/logo_bg.svg"
   loadingComplete = false;
 
   constructor(
@@ -60,7 +61,7 @@ export class Dashboard {
       {
         id: ProductSheet.LAMB,
         greek: 'ΑΜΝΟΕΡΙΦΙΑ',
-        icon: 'lamb.svg',
+        icon: 'sheep.svg',
         icon_by_height: true
       },
       {

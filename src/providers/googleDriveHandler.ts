@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class GoogleDriveHandler {
-  data: any = null;
+  // data: any = null;
   private sheet = 3;
 
   constructor(public http: HttpClient) { }
