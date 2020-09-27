@@ -12,9 +12,13 @@
     </category-button>
   </div>
 
-  <div *ngIf="suggestedProducts" class="horizontal-scroll">
-    <product-card *ngFor="let prod of suggestedProducts" [name]="prod.name" [image]="prod.image" 
-       [price]="prod.pricePerWeight" (click)="openCategory(prod.id)">
-    </product-card>
+  <div class="suggested-products">
+    <p class="suggested-products-title">{{suggestedProductsTitle}}</p>
+    <div *ngIf="suggestedProducts" class="horizontal-scroll">
+      <product-card *ngFor="let prod of suggestedProducts" [name]="prod.name" [image]="prod.image" 
+         [price]="prod.pricePerWeight" (click)="openCategory(prod.id)">
+      </product-card>
+    </div>
   </div>
+
 </div>

@@ -36,7 +36,8 @@ export class GoogleDriveHandler {
             name: data.feed.entry[(i*4) + 0].content.$t,
             pricePerWeight: data.feed.entry[(i*4) + 1].content.$t,
             pricePerPiece: data.feed.entry[(i*4) + 2].content.$t,
-            image: data.feed.entry[(i*4) + 3].content.$t
+            // image: data.feed.entry[(i*4) + 3].content.$t
+            image: "assets/img/TEST_mprizola_mosxou.jpg"
           }
         )
       }

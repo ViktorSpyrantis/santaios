@@ -12,13 +12,13 @@ import { ProductSheet } from 'src/providers/productSheets'
 export class Dashboard {
 
   categoryList = [];
-  suggestedProducts = [];
-  // suggestedProducts: {
-  //   name: string,
-  //   pricePerWeight: string,
-  //   pricePerPiece: string,
-  //   image: string,
-  // }[];
+  suggestedProductsTitle = "Προτεινόμενα  προϊόντα"
+  suggestedProducts: {
+    name: string,
+    pricePerWeight: string,
+    pricePerPiece: string,
+    image: string,
+  }[];
   // private productsList = ProductCategories;
   bgImage: string = "assets/img/bg.png"
   logoBg: string = "assets/icon/logo_bg.svg"
