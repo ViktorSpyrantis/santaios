@@ -16,6 +16,7 @@ import { CustomHeader } from '../components/custom-header/custom-header';
 import { GoogleDriveHandler } from '../providers/googleDriveHandler'
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 import { ProductCard } from 'src/components/product-card/product-card';
+import { CustomFooter } from 'src/components/custom-footer/custom-footer';
 
 @NgModule({
   declarations: [
@@ -24,14 +25,16 @@ import { ProductCard } from 'src/components/product-card/product-card';
     Dashboard,
     CategoryPage,
     CustomHeader,
-    ProductCard
+    ProductCard,
+    CustomFooter
   ],
   entryComponents: [
     CategoryButton,
     Dashboard,
     CategoryPage,
     CustomHeader,
-    ProductCard
+    ProductCard,
+    CustomFooter
   ],
   imports: [
     BrowserModule, 
