@@ -1,7 +1,7 @@
 <div id="custom-footer">
   <ion-grid class="footer-grid">
     <ion-row>
-      <ion-col>
+      <!-- <ion-col>
         <img src="{{likeIcon}}" class="icon">
       </ion-col>
 
@@ -19,6 +19,10 @@
 
       <ion-col>
         <img src="{{logoIcon}}" class="icon">
+      </ion-col> -->
+
+      <ion-col *ngFor="let col of columnArray" (click)="openLink(let.link)">
+        <img src="{{let.icon}}" class="icon">
       </ion-col>
     </ion-row>
   </ion-grid>

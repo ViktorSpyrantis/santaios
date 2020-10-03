@@ -1,7 +1,13 @@
 #custom-footer {
-  height: 10vw;
+  height: 17vw;
   background-color: rgb(2, 107, 2);
   .footer-grid {
-    min-height: 9vw;
+    ion-row {
+      ion-col {
+        text-align: center;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+    }
   }
 }
