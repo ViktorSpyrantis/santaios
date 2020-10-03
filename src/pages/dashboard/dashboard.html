@@ -8,18 +8,26 @@
 
   <div *ngIf="loadingComplete" class="horizontal-scroll">
     <category-button *ngFor="let cat of categoryList" [name]="cat.greek" [icon]="cat.icon" 
-       (click)="openCategory(cat.id)">
+       (click)="openCategory(cat.id, cat.page_title)">
     </category-button>
   </div>
 
-  <div class="suggested-products">
-    <p class="suggested-products-title">{{suggestedProductsTitle}}</p>
-    <div *ngIf="suggestedProducts" class="horizontal-scroll">
+  <div class="card-container">
+    <p class="cards-title">{{suggestedProductsTitle}}</p>
+    <div *ngIf="loadingComplete" class="horizontal-scroll">
       <product-card *ngFor="let prod of suggestedProducts" [name]="prod.name" [image]="prod.image" 
          [price]="prod.pricePerWeight" (click)="openCategory(prod.id)">
       </product-card>
     </div>
   </div>
 
+  <div class="card-container">
+    <p class="cards-title">{{weeklyOffersTitle}}</p>
+    <div *ngIf="loadingComplete" class="horizontal-scroll">
+      <product-card *ngFor="let prod of weeklyOffers" [name]="prod.name" [image]="prod.image" 
+         [price]="prod.pricePerWeight" (click)="openCategory(prod.id)">
+      </product-card>
+    </div>
+  </div>
+
 </div>
-<!-- <custom-footer></custom-footer> -->

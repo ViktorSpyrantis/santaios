@@ -10,6 +10,7 @@ import { ProductCategories } from 'src/providers/productCategories';
 })
 export class CategoryPage {
   
+  title: string;
   private category: any;
   private columns: number = 2;
   private products = [];

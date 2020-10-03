@@ -21,8 +21,8 @@
         <img src="{{logoIcon}}" class="icon">
       </ion-col> -->
 
-      <ion-col *ngFor="let col of columnArray" (click)="openLink(let.link)">
-        <img src="{{let.icon}}" class="icon">
+      <ion-col *ngFor="let col of columnArray;" (click)="openLink(col.link)">
+        <img src="{{col.icon}}" class="icon">
       </ion-col>
     </ion-row>
   </ion-grid>

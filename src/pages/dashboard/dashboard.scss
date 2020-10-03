@@ -1,10 +1,13 @@
 #dashboard {
-  // text-align: center;
   height: 100%;
   background-color: rgba(235, 236, 235, 0.945);
   overflow: scroll;
-  // padding-left: 5vw;
-  // padding-right: 5vw;
+  .cards-title {
+    margin-bottom: 1.5vw;
+    font-size: 4vw;
+    font-weight: 600;
+    color: rgb(133, 130, 130);
+  }
 
   .horizontal-scroll {
     display: flex;
@@ -16,24 +19,17 @@
   .logo-container {
     height: 60vw;
     .logo-top {
-      position: absolute;
-      top: -40%;
+      position: relative;
+      bottom: 120%;
       left: -15%;
       min-width: 130vw;
     }
   }
 
-  .suggested-products {
+  .card-container {
     margin-left: 3vw;
     margin-right: 3vw;
-    .suggested-products-title {
-      margin-bottom: 1.5vw;
-      font-size: 4vw;
-      font-weight: 600;
-      color: rgb(133, 130, 130);
-    }
   }
-
   
   .category-container {
 

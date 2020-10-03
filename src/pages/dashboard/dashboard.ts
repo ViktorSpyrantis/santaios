@@ -10,10 +10,20 @@ import { ProductSheet } from 'src/providers/productSheets'
   styleUrls: ['dashboard.scss'],
 })
 export class Dashboard {
+  loadingComplete: boolean = false;
 
   categoryList = [];
+
   suggestedProductsTitle = "Προτεινόμενα  προϊόντα"
   suggestedProducts: {
+    name: string,
+    pricePerWeight: string,
+    pricePerPiece: string,
+    image: string,
+  }[];
+
+  weeklyOffersTitle = "Προσφορές εβδομάδος";
+  weeklyOffers: {
     name: string,
     pricePerWeight: string,
     pricePerPiece: string,
@@ -22,7 +32,6 @@ export class Dashboard {
   // private productsList = ProductCategories;
   bgImage: string = "assets/img/bg.png"
   logoBg: string = "assets/icon/logo_bg.svg"
-  loadingComplete = false;
 
   constructor(
     private router: Router,
@@ -38,7 +47,6 @@ export class Dashboard {
   }
 
   openCategory(categoryName: string) {
-
     let navigationExtras: NavigationExtras = {
       queryParams: {
         sheet: categoryName
@@ -48,7 +56,9 @@ export class Dashboard {
   }
 
   private initLists() {
-    this.suggestedProducts = this.driveHandler.getProductCardInfo(Files.SUGGESTED)
+    this.suggestedProducts = this.driveHandler.getProductCardInfo(Files.SUGGESTED);
+    this.weeklyOffers = this.driveHandler.getProductCardInfo(Files.WEEK_OFFERS);
+    this.loadingComplete = true;
   }
 
   private initCategoryList() {
@@ -56,36 +66,42 @@ export class Dashboard {
       {
         id: ProductSheet.BEEF,
         greek: 'ΜΟΣΧΑΡΙΣΙΟ',
+        page_title: 'Μοσχαρίσια κρέατα',
         icon: 'cow.svg',
         icon_by_height: true
       },
       {
         id: ProductSheet.PORK,
         greek: 'ΧΟΙΡΙΝΟ',
+        page_title: 'Χοιρινά κρέατα',
         icon: 'pig.svg',
         icon_by_height: true
       },
       {
         id: ProductSheet.CHICKEN,
         greek: 'ΚΟΤΟΠΟΥΛΟ',
+        page_title: 'Κρέας κοτόπουλου',
         icon: 'chicken.svg',
         icon_by_height: false
       },
       {
         id: ProductSheet.LAMB,
         greek: 'ΑΜΝΟΕΡΙΦΙΑ',
+        page_title: 'Κατσικίσια κρέατα',
         icon: 'sheep.svg',
         icon_by_height: true
       },
       {
         id: ProductSheet.PREPARATIONS,
         greek: 'ΠΑΡ/ΑΣΜΑΤΑ',
+        page_title: 'Παρασκευάσματα',
         icon: 'kebab.svg',
         icon_by_height: false
       },
       {
         id: ProductSheet.DRY_AGED,
         greek: 'DRY AGED',
+        page_title: 'Dry aged',
         icon: 'steak.svg',
         icon_by_height: true
       }
@@ -94,6 +110,5 @@ export class Dashboard {
     this.categoryList.forEach(cat => {
       cat.icon = 'assets/icon/' + cat.icon;
     })
-    this.loadingComplete = true;
   }
 }
