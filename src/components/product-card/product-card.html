@@ -1,4 +1,4 @@
-<div id="main-product-card">
+<div id="main-product-card" [ngClass]="{'main-product-card-big' : !small, 'main-product-card-small' : small}">
   <div class="card-container">
     <div class="text-area">
       <p class="weight"><i>{{weightText}}</i></p>

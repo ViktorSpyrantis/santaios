@@ -1,21 +1,16 @@
-
-#all {
-  text-align: center;
-  border-bottom: 0.5vw solid rgb(163, 157, 157);
-
-  .logo {
-    width: 15vw;
-  }
-  .title1 {
-    font-size: 6vw;
-    font-weight: 700;
-    color: #8f4012;
-    margin: 0;
-  }
-  .title2 {
-    font-size: 6vw;
-    font-weight: 700;
-    color: #8f4012;
-    margin: 0;
+#custom-header {
+  height: 17vw;
+  background-color: rgb(18, 99, 54);
+  .icon-container {
+    height: inherit;
+    width: fit-content;
+    display: inline-flex;
+    .logo-icon {
+      width: 13vw;
+      vertical-align: middle;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 5vw;
+    }
   }
 }

@@ -17,6 +17,8 @@ import { GoogleDriveHandler } from '../providers/googleDriveHandler'
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 import { ProductCard } from 'src/components/product-card/product-card';
 import { CustomFooter } from '../components/custom-footer/custom-footer';
+import { CategoryList } from 'src/components/category-list/category-list';
+import { ProductCategories } from 'src/providers/product-categories';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { CustomFooter } from '../components/custom-footer/custom-footer';
     CategoryPage,
     CustomHeader,
     ProductCard,
-    CustomFooter
+    CustomFooter,
+    CategoryList
   ],
   entryComponents: [
     CategoryButton,
@@ -48,7 +51,8 @@ import { CustomFooter } from '../components/custom-footer/custom-footer';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     GoogleDriveHandler,
-    HttpClient
+    HttpClient,
+    ProductCategories
   ],
   bootstrap: [AppComponent]
 })

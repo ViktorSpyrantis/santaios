@@ -1,4 +1,4 @@
-export enum ProductCategories {
+export enum ProductCategoriesEnum {
   BEEF = 'BEEF',
   PORK = 'PORK',
   CHICKEN = 'CHICKEN',

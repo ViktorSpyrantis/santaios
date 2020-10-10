@@ -7,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class CustomHeader {
 
-  headerTitle1: string = 'ΚΡΕΑΤΑΓΟΡΑ ';
-  headerTitle2: string = 'Ο ΣΑΝΤΑΙΟΣ';
   logo: string = "assets/icon/logo_no_letters.svg";
 
   constructor() {}

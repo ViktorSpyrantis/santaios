@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GoogleDriveHandler } from 'src/providers/googleDriveHandler';
-import { ProductCategories } from 'src/providers/productCategories';
+import { ProductCategoriesEnum } from 'src/providers/product-categories-enum';
 
 @Component({
   selector: 'category-page',
@@ -16,6 +16,7 @@ export class CategoryPage {
   private products = [];
   private rowList = [];
   private sheetNumber: number;
+  private pageTitle: string;
 
   constructor(
     private route: ActivatedRoute, 
@@ -25,15 +26,12 @@ export class CategoryPage {
     this.route.queryParams.subscribe(params => {
       if (params) {
         this.sheetNumber = params.sheet;
+        this.pageTitle = params.title;
         this.products = this.driveHandler.getProducts(this.sheetNumber);
         console.log("PRODUCTS RETURNED: ", this.products);
       }
     });
   }
 
-  // private populateRowList() {
-  //   this.rowList = [];
-  //   for(let i=0; i < )
-  // }
 }
 

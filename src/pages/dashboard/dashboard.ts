@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { GoogleDriveHandler, Files } from 'src/providers/googleDriveHandler';
-import { ProductCategories } from 'src/providers/productCategories';
+import { ProductCategories } from 'src/providers/product-categories';
+import { ProductCategoriesEnum } from 'src/providers/product-categories-enum';
 import { ProductSheet } from 'src/providers/productSheets'
 
 @Component({
@@ -12,7 +13,7 @@ import { ProductSheet } from 'src/providers/productSheets'
 export class Dashboard {
   loadingComplete: boolean = false;
 
-  categoryList = [];
+  // categoryList = [];
 
   suggestedProductsTitle = "Προτεινόμενα  προϊόντα"
   suggestedProducts: {
@@ -35,17 +36,19 @@ export class Dashboard {
 
   constructor(
     private router: Router,
-    private driveHandler: GoogleDriveHandler
+    private driveHandler: GoogleDriveHandler,
+    // private productCategories: ProductCategories
   ) {
 
   }
 
   ngOnInit() {
-    this.initCategoryList();
+    // this.initCategoryList();
     this.initLists();
     console.log('SUGGESTED PRODUCTS: ', this.suggestedProducts)
   }
 
+  // FIXME : DELET MAYBE
   openCategory(categoryName: string) {
     let navigationExtras: NavigationExtras = {
       queryParams: {
@@ -61,54 +64,12 @@ export class Dashboard {
     this.loadingComplete = true;
   }
 
-  private initCategoryList() {
-    this.categoryList = [
-      {
-        id: ProductSheet.BEEF,
-        greek: 'ΜΟΣΧΑΡΙΣΙΟ',
-        page_title: 'Μοσχαρίσια κρέατα',
-        icon: 'cow.svg',
-        icon_by_height: true
-      },
-      {
-        id: ProductSheet.PORK,
-        greek: 'ΧΟΙΡΙΝΟ',
-        page_title: 'Χοιρινά κρέατα',
-        icon: 'pig.svg',
-        icon_by_height: true
-      },
-      {
-        id: ProductSheet.CHICKEN,
-        greek: 'ΚΟΤΟΠΟΥΛΟ',
-        page_title: 'Κρέας κοτόπουλου',
-        icon: 'chicken.svg',
-        icon_by_height: false
-      },
-      {
-        id: ProductSheet.LAMB,
-        greek: 'ΑΜΝΟΕΡΙΦΙΑ',
-        page_title: 'Κατσικίσια κρέατα',
-        icon: 'sheep.svg',
-        icon_by_height: true
-      },
-      {
-        id: ProductSheet.PREPARATIONS,
-        greek: 'ΠΑΡ/ΑΣΜΑΤΑ',
-        page_title: 'Παρασκευάσματα',
-        icon: 'kebab.svg',
-        icon_by_height: false
-      },
-      {
-        id: ProductSheet.DRY_AGED,
-        greek: 'DRY AGED',
-        page_title: 'Dry aged',
-        icon: 'steak.svg',
-        icon_by_height: true
-      }
-    ];
+  // private initCategoryList() {
+  //   this.categoryList = this.productCategories.getCategories();
 
-    this.categoryList.forEach(cat => {
-      cat.icon = 'assets/icon/' + cat.icon;
-    })
-  }
+  //   // FIXME : REMOVE THIS SHIT LATER
+  //   this.categoryList.forEach(cat => {
+  //     cat.icon = 'assets/icon/' + cat.icon;
+  //   })
+  // }
 }

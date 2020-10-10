@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class GoogleDriveHandler {
-  // data: any = null;
+  // FIXME : I added a workaround on the get product fns here(let _data: any = data). Find a better solution
+
   private sheet = 3;
 
   constructor(public http: HttpClient) { }
@@ -12,13 +13,14 @@ export class GoogleDriveHandler {
     const url = `https://spreadsheets.google.com/feeds/cells/1iPS-nAjwo8tmOk6kyBGxbctByRCoCI7FISqZxkQufFk/${sheet}/public/full?alt=json`;
     let products = [];
     this.http.get(url).subscribe(data => {
-      for(let i=0; i<(data.feed.entry.length)/4; i++) {
+      let _data: any = data;
+      for(let i=0; i<(_data.feed.entry.length)/4; i++) {
         products.push(
           {
-            name: data.feed.entry[(i*4) + 0].content.$t,
-            pricePerWeight: data.feed.entry[(i*4) + 1].content.$t,
-            pricePerPiece: data.feed.entry[(i*4) + 2].content.$t,
-            image: data.feed.entry[(i*4) + 3].content.$t
+            name: _data.feed.entry[(i*4) + 0].content.$t,
+            pricePerWeight: _data.feed.entry[(i*4) + 1].content.$t,
+            pricePerPiece: _data.feed.entry[(i*4) + 2].content.$t,
+            image: _data.feed.entry[(i*4) + 3].content.$t
           }
         )
       }
@@ -30,13 +32,14 @@ export class GoogleDriveHandler {
     let products = [];
     console.log('$$$', file)
     this.http.get('https://spreadsheets.google.com/feeds/cells/1iPS-nAjwo8tmOk6kyBGxbctByRCoCI7FISqZxkQufFk/3/public/full?alt=json').subscribe(data => {
-      for(let i=0; i<(data.feed.entry.length)/4; i++) {
+      let _data: any = data;
+      for(let i=0; i<(_data.feed.entry.length)/4; i++) {
         products.push(
           {
-            name: data.feed.entry[(i*4) + 0].content.$t,
-            pricePerWeight: data.feed.entry[(i*4) + 1].content.$t,
-            pricePerPiece: data.feed.entry[(i*4) + 2].content.$t,
-            // image: data.feed.entry[(i*4) + 3].content.$t
+            name: _data.feed.entry[(i*4) + 0].content.$t,
+            pricePerWeight: _data.feed.entry[(i*4) + 1].content.$t,
+            pricePerPiece: _data.feed.entry[(i*4) + 2].content.$t,
+            // image: _data.feed.entry[(i*4) + 3].content.$t
             image: "assets/img/test_raw_meat.png"
           }
         )

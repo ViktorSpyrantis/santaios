@@ -10,9 +10,9 @@ export class ProductCard {
   private likeIcon: string = "assets/icon/heart.svg";
   private weightText: string = "το κιλό";
 
+  @Input() small: boolean;
   @Input() name: string;
   @Input() image: string;
-  // @Input() weight: string;
   @Input() price: string;
 
 
