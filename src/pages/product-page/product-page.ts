@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { GoogleDriveHandler } from 'src/providers/googleDriveHandler';
-import { ProductCategoriesEnum } from 'src/providers/product-categories-enum';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'product-page',
@@ -9,8 +7,22 @@ import { ProductCategoriesEnum } from 'src/providers/product-categories-enum';
   styleUrls: ['product-page.scss'],
 })
 export class ProductPage {
+  product: any;
+  amount: number =  0;
 
-  constructor() { 
+  constructor(
+    private route: ActivatedRoute, 
+  ) { 
+    this.route.queryParams.subscribe(params => {
+      if (params) {
+        // this.product = {
+        //   name: params.name,
+        //   image: params.image,
+        //   price: params.price
+        // }
+        this.product = JSON.parse(params.product);
+      }
+    });
   }
 
 }

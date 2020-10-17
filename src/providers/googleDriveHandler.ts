@@ -32,7 +32,6 @@ export class GoogleDriveHandler {
   
   public getProductCardInfo(file: Files): any {
     let products = [];
-    console.log('$$$', file)
     this.http.get('https://spreadsheets.google.com/feeds/cells/1iPS-nAjwo8tmOk6kyBGxbctByRCoCI7FISqZxkQufFk/3/public/full?alt=json').subscribe(data => {
       let _data: any = data;
       for(let i=0; i<(_data.feed.entry.length)/4; i++) {

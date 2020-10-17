@@ -44,14 +44,14 @@ export class Dashboard {
   }
 
   // FIXME : DELET MAYBE
-  openCategory(categoryName: string) {
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-        sheet: categoryName
-      }
-    };
-    this.router.navigate(['/category'], navigationExtras)
-  }
+  // openCategory(categoryName: string) {
+  //   let navigationExtras: NavigationExtras = {
+  //     queryParams: {
+  //       sheet: categoryName
+  //     }
+  //   };
+  //   this.router.navigate(['/category'], navigationExtras)
+  // }
 
   private initLists() {
     this.suggestedProducts = this.driveHandler.getProductCardInfo(Files.SUGGESTED);

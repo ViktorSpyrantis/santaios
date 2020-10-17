@@ -20,10 +20,10 @@ export class CategoryList {
 
 
 
-  openCategory(categoryName: string, title: string) {
+  openCategory(id: string, title: string) {
     let navigationExtras: NavigationExtras = {
       queryParams: {
-        sheet: categoryName,
+        sheet: id,
         title: title
       }
     };

@@ -12,6 +12,7 @@ export class ProductCard {
   private weightText: string = "το κιλό";
 
   @Input() small: boolean;
+  // FIXME : DELET MAYBE IF USELESS
   // @Input() name: string;
   // @Input() image: string;
   // @Input() price: string;
@@ -25,9 +26,12 @@ export class ProductCard {
   openProduct() {
     let navigationExtras: NavigationExtras = {
       queryParams: {
-        // productId
+        product: JSON.stringify(this.product)
+        // name: this.product.name,
+        // image: this.product.image,
+        // price: this.product.pricePerWeight
       }
     };
-    this.router.navigate(['/category'], navigationExtras)
+    this.router.navigate(['/product'], navigationExtras)
   }
 }

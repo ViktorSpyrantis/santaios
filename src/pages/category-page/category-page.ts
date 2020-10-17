@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { GoogleDriveHandler } from 'src/providers/googleDriveHandler';
 
 @Component({
@@ -19,7 +19,6 @@ export class CategoryPage {
 
   constructor(
     private route: ActivatedRoute, 
-    private router: Router,
     private driveHandler: GoogleDriveHandler
   ) {
     this.route.queryParams.subscribe(params => {
