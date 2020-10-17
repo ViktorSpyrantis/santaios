@@ -1,5 +1,6 @@
 <custom-header></custom-header>
 <ion-content padding>
+  <div id="just-margin"></div>
   <category-list></category-list>
   <div class="text-center">
     <h3 class="title">{{pageTitle}}</h3>
@@ -8,8 +9,7 @@
   <ion-grid class="prod-container">
     <ion-row class="prod-row">
       <ion-col class="prod-col" size="4" *ngFor="let prod of products">
-        <product-card [name]="prod.name" [image]="prod.image" [small]="true"
-        [price]="prod.pricePerWeight" (click)="openCategory(prod.id)">
+        <product-card [small]="true" [product]="prod.product" (click)="openCategory(prod.id)">
         </product-card>
       </ion-col>
     </ion-row>

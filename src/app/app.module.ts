@@ -19,6 +19,7 @@ import { ProductCard } from 'src/components/product-card/product-card';
 import { CustomFooter } from '../components/custom-footer/custom-footer';
 import { CategoryList } from 'src/components/category-list/category-list';
 import { ProductCategories } from 'src/providers/product-categories';
+import { ProductPage } from 'src/pages/product-page/product-page';
 
 @NgModule({
   declarations: [
@@ -29,15 +30,16 @@ import { ProductCategories } from 'src/providers/product-categories';
     CustomHeader,
     ProductCard,
     CustomFooter,
-    CategoryList
+    CategoryList,
+    ProductPage
   ],
   entryComponents: [
-    CategoryButton,
-    Dashboard,
-    CategoryPage,
-    CustomHeader,
-    ProductCard,
-    CustomFooter
+    // CategoryButton,
+    // Dashboard,
+    // CategoryPage,
+    // CustomHeader,
+    // ProductCard,
+    // CustomFooter
   ],
   imports: [
     BrowserModule, 

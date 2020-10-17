@@ -17,10 +17,12 @@ export class GoogleDriveHandler {
       for(let i=0; i<(_data.feed.entry.length)/4; i++) {
         products.push(
           {
-            name: _data.feed.entry[(i*4) + 0].content.$t,
-            pricePerWeight: _data.feed.entry[(i*4) + 1].content.$t,
-            pricePerPiece: _data.feed.entry[(i*4) + 2].content.$t,
-            image: _data.feed.entry[(i*4) + 3].content.$t
+            product: {
+              name: _data.feed.entry[(i*4) + 0].content.$t,
+              pricePerWeight: _data.feed.entry[(i*4) + 1].content.$t,
+              pricePerPiece: _data.feed.entry[(i*4) + 2].content.$t,
+              image: _data.feed.entry[(i*4) + 3].content.$t
+            }
           }
         )
       }
@@ -36,11 +38,13 @@ export class GoogleDriveHandler {
       for(let i=0; i<(_data.feed.entry.length)/4; i++) {
         products.push(
           {
-            name: _data.feed.entry[(i*4) + 0].content.$t,
-            pricePerWeight: _data.feed.entry[(i*4) + 1].content.$t,
-            pricePerPiece: _data.feed.entry[(i*4) + 2].content.$t,
-            // image: _data.feed.entry[(i*4) + 3].content.$t
-            image: "assets/img/test_raw_meat.png"
+            product: {
+              name: _data.feed.entry[(i*4) + 0].content.$t,
+              pricePerWeight: _data.feed.entry[(i*4) + 1].content.$t,
+              pricePerPiece: _data.feed.entry[(i*4) + 2].content.$t,
+              // image: _data.feed.entry[(i*4) + 3].content.$t
+              image: "assets/img/test_raw_meat.png"
+            }
           }
         )
       }

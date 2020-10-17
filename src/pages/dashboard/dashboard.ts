@@ -13,8 +13,6 @@ import { ProductSheet } from 'src/providers/productSheets'
 export class Dashboard {
   loadingComplete: boolean = false;
 
-  // categoryList = [];
-
   suggestedProductsTitle = "Προτεινόμενα  προϊόντα"
   suggestedProducts: {
     name: string,
@@ -30,20 +28,17 @@ export class Dashboard {
     pricePerPiece: string,
     image: string,
   }[];
-  // private productsList = ProductCategories;
   bgImage: string = "assets/img/bg.png"
   logoBg: string = "assets/icon/logo_bg.svg"
 
   constructor(
     private router: Router,
     private driveHandler: GoogleDriveHandler,
-    // private productCategories: ProductCategories
   ) {
 
   }
 
   ngOnInit() {
-    // this.initCategoryList();
     this.initLists();
     console.log('SUGGESTED PRODUCTS: ', this.suggestedProducts)
   }
@@ -64,12 +59,4 @@ export class Dashboard {
     this.loadingComplete = true;
   }
 
-  // private initCategoryList() {
-  //   this.categoryList = this.productCategories.getCategories();
-
-  //   // FIXME : REMOVE THIS SHIT LATER
-  //   this.categoryList.forEach(cat => {
-  //     cat.icon = 'assets/icon/' + cat.icon;
-  //   })
-  // }
 }
