@@ -15,11 +15,11 @@ export class CustomFooter {
   logoIcon = "assets/icon/logo_small.svg"
 
   columnArray = [
-    {
-      id: "like",
-      link: "",
-      icon: "assets/icon/heart_white.svg"
-    },
+    // {
+    //   id: "like",
+    //   link: "",
+    //   icon: "assets/icon/heart_white.svg"
+    // },
     {
       id: "cart",
       link: "",
@@ -30,11 +30,11 @@ export class CustomFooter {
       link: "dashboard",
       icon: "assets/icon/home.svg"
     },
-    {
-      id: "expand",
-      link: "",
-      icon: "TODO"
-    },
+    // {
+    //   id: "expand",
+    //   link: "",
+    //   icon: "TODO"
+    // },
     {
       id: "logo",
       link: "dashboard",

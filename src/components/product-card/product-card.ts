@@ -12,11 +12,23 @@ export class ProductCard {
   private weightText: string = "το κιλό";
 
   @Input() small: boolean;
+  @Input() dayIndex?: number;
   // FIXME : DELET MAYBE IF USELESS
   // @Input() name: string;
   // @Input() image: string;
   // @Input() price: string;
   @Input() product: any;
+
+  day: string;
+  dayIndexMap = new Map([
+    [0, "Δευτέρα"],
+    [1, "Τρίτη"],
+    [2, "Τετάρτη"],
+    [3, "Πέμπτη"],
+    [4, "Παρασκευή"],
+    [5, "Σάββατο"],
+    [6, "Κυριακή"]
+  ]); 
 
 
   constructor(
@@ -29,7 +41,7 @@ export class ProductCard {
         product: JSON.stringify(this.product)
         // name: this.product.name,
         // image: this.product.image,
-        // price: this.product.pricePerWeight
+        // price: this.product.price
       }
     };
     this.router.navigate(['/product'], navigationExtras)

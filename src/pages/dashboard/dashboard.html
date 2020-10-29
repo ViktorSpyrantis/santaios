@@ -14,21 +14,21 @@
   </div> -->
 
 
-<!-- [name]="prod.name" [image]="prod.image" [price]="prod.pricePerWeight"  -->
+<!-- [name]="prod.name" [image]="prod.image" [price]="prod.price"  -->
   
 
-  <div class="card-container">
+  <div class="card-container" *ngIf="loadingComplete">
     <p class="cards-title">{{suggestedProductsTitle}}</p>
-    <div *ngIf="loadingComplete" class="horizontal-scroll">
+    <div class="horizontal-scroll">
       <product-card *ngFor="let prod of suggestedProducts" [small]="false" [product]="prod.product">
       </product-card>
     </div>
   </div>
 
-  <div class="card-container">
+  <div class="card-container" *ngIf="loadingComplete" >
     <p class="cards-title">{{weeklyOffersTitle}}</p>
-    <div *ngIf="loadingComplete" class="horizontal-scroll">
-      <product-card *ngFor="let prod of weeklyOffers" [small]="false" [product]="prod.product">
+    <div class="horizontal-scroll">
+      <product-card *ngFor="let prod of weeklyOffers; let i = index" [small]="false" [product]="prod.product" [dayIndex]="i">
       </product-card>
     </div>
   </div>

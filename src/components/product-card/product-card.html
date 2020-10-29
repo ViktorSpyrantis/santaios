@@ -1,8 +1,9 @@
 <div id="main-product-card" [ngClass]="{'main-product-card-big' : !small, 'main-product-card-small' : small}">
+  <p class="day">{{dayIndexMap.get(dayIndex)}}</p>
   <div class="card-container" (click)="openProduct()">
     <div class="text-area">
       <p class="weight"><i>{{weightText}}</i></p>
-      <p class="price">{{product.pricePerWeight}}</p>
+      <p class="price">{{product.price}}</p>
     </div>
   
     <div class="image-container">

@@ -19,9 +19,9 @@ export class GoogleDriveHandler {
           {
             product: {
               name: _data.feed.entry[(i*4) + 0].content.$t,
-              pricePerWeight: _data.feed.entry[(i*4) + 1].content.$t,
-              pricePerPiece: _data.feed.entry[(i*4) + 2].content.$t,
-              image: _data.feed.entry[(i*4) + 3].content.$t
+              price: _data.feed.entry[(i*4) + 1].content.$t,
+              image: _data.feed.entry[(i*4) + 2].content.$t,
+              info: _data.feed.entry[(i*4) + 3].content.$t
             }
           }
         )
@@ -32,17 +32,16 @@ export class GoogleDriveHandler {
   
   public getProductCardInfo(file: Files): any {
     let products = [];
-    this.http.get('https://spreadsheets.google.com/feeds/cells/1iPS-nAjwo8tmOk6kyBGxbctByRCoCI7FISqZxkQufFk/3/public/full?alt=json').subscribe(data => {
+    this.http.get(file).subscribe(data => {
       let _data: any = data;
       for(let i=0; i<(_data.feed.entry.length)/4; i++) {
         products.push(
           {
             product: {
               name: _data.feed.entry[(i*4) + 0].content.$t,
-              pricePerWeight: _data.feed.entry[(i*4) + 1].content.$t,
-              pricePerPiece: _data.feed.entry[(i*4) + 2].content.$t,
-              // image: _data.feed.entry[(i*4) + 3].content.$t
-              image: "assets/img/test_raw_meat.png"
+              price: _data.feed.entry[(i*4) + 1].content.$t,
+              image: _data.feed.entry[(i*4) + 2].content.$t,
+              info: _data.feed.entry[(i*4) + 3].content.$t
             }
           }
         )
@@ -53,7 +52,7 @@ export class GoogleDriveHandler {
 }
 
 export enum Files {
-  SUGGESTED = 'https://spreadsheets.google.com/feeds/cells/1iPS-nAjwo8tmOk6kyBGxbctByRCoCI7FISqZxkQufFk/3/public/full?alt=json',
-  WEEK_OFFERS = 'https://spreadsheets.google.com/feeds/cells/1iPS-nAjwo8tmOk6kyBGxbctByRCoCI7FISqZxkQufFk/3/public/full?alt=json'
+  SUGGESTED = 'https://spreadsheets.google.com/feeds/cells/1iPS-nAjwo8tmOk6kyBGxbctByRCoCI7FISqZxkQufFk/8/public/full?alt=json',
+  WEEK_OFFERS = 'https://spreadsheets.google.com/feeds/cells/1iPS-nAjwo8tmOk6kyBGxbctByRCoCI7FISqZxkQufFk/7/public/full?alt=json'
 }
 

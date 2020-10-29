@@ -1,7 +1,8 @@
 #dashboard {
   height: 100%;
   background-color: rgba(235, 236, 235, 0.945);
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   .cards-title {
     margin-bottom: 1.5vw;
     font-size: 4vw;

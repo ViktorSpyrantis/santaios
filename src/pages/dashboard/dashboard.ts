@@ -16,17 +16,17 @@ export class Dashboard {
   suggestedProductsTitle = "Προτεινόμενα  προϊόντα"
   suggestedProducts: {
     name: string,
-    pricePerWeight: string,
-    pricePerPiece: string,
+    price: string,
     image: string,
+    info: string
   }[];
 
   weeklyOffersTitle = "Προσφορές εβδομάδος";
   weeklyOffers: {
     name: string,
-    pricePerWeight: string,
-    pricePerPiece: string,
+    price: string,
     image: string,
+    info: string
   }[];
   bgImage: string = "assets/img/bg.png"
   logoBg: string = "assets/icon/logo_bg.svg"
@@ -41,6 +41,9 @@ export class Dashboard {
   ngOnInit() {
     this.initLists();
     console.log('SUGGESTED PRODUCTS: ', this.suggestedProducts)
+    setTimeout(() => {
+      this.loadingComplete = true;
+    }, 500);
   }
 
   // FIXME : DELET MAYBE
@@ -56,7 +59,6 @@ export class Dashboard {
   private initLists() {
     this.suggestedProducts = this.driveHandler.getProductCardInfo(Files.SUGGESTED);
     this.weeklyOffers = this.driveHandler.getProductCardInfo(Files.WEEK_OFFERS);
-    this.loadingComplete = true;
   }
 
 }

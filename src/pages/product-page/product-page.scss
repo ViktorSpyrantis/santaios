@@ -4,12 +4,15 @@
     height: 100%;
     .product-img-container {
       text-align: center;
-      background-color: white;
-      box-shadow: 0vw 1.3vw 2.6vw 0vw rgb(0, 0, 0, 0.5);
-      height: 60vw;
-      width: 100vw;
-      border-bottom-left-radius: 50%  50%;
-      border-bottom-right-radius: 50%  50%;
+      // background-color: white;
+      // box-shadow: 0vw 1.3vw 2.6vw 0vw rgb(0, 0, 0, 0.5);
+      // height: 100vw;
+      // width: 100vw;
+      // position: relative;
+      // right: 50%;
+      // bottom: 20%;
+      // border-bottom-left-radius: 50%  50%;
+      // border-bottom-right-radius: 50%  50%;
       .product-title {
         font-size: 6.2vw;
         font-weight: 500;
@@ -43,6 +46,11 @@
       }
       .value-container {
         padding: 5vw 7vw 5vw 7vw;
+        .info {
+          font-size: 3.7vw;
+          font-weight: 400;
+          color: rgb(109, 108, 108);
+        }
         .info-line {
           margin-top: 0.8vw;
           margin-bottom: 0.8vw;
@@ -74,18 +82,24 @@
       }
       .sign {
         margin: 0;
-        font-size: 7vw;
+        font-size: 9vw;
         font-weight: 800;
       }
-      .amount {
-        margin: 0 auto 0 auto;
-        width: 15vw;
-        font-size: 8vw;
-        font-weight: 800;
-        color: rgb(26, 87, 7);
-        padding: 2vw;
-        background-color: white;
-        border-radius: 2vw;
+      .amount-selector {
+        .sign {
+          display: inline-block;
+        }
+        .amount {
+          display: inline-block;
+          margin: 0 auto 0 auto;
+          width: 15vw;
+          font-size: 8vw;
+          font-weight: 800;
+          color: rgb(26, 87, 7);
+          // padding: 2vw;
+          // background-color: white;
+          // border-radius: 2vw;
+        }
       }
     }
   }
