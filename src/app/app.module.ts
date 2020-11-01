@@ -21,6 +21,7 @@ import { CategoryList } from 'src/components/category-list/category-list';
 import { ProductCategories } from 'src/providers/product-categories';
 import { ProductPage } from 'src/pages/product-page/product-page';
 import { CartModal } from 'src/modals/cart-modal/cart-modal';
+import { CartHandler } from 'src/providers/cart-handler';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { CartModal } from 'src/modals/cart-modal/cart-modal';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     GoogleDriveHandler,
     HttpClient,
-    ProductCategories
+    ProductCategories,
+    CartHandler
   ],
   bootstrap: [AppComponent]
 })

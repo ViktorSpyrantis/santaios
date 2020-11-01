@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { CartModal } from 'src/modals/cart-modal/cart-modal';
+import { CartHandler } from 'src/providers/cart-handler';
 
 @Component({
   selector: 'product-page',
@@ -16,7 +17,8 @@ export class ProductPage {
 
   constructor(
     private route: ActivatedRoute,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private cartHandler: CartHandler
   ) { 
     this.route.queryParams.subscribe(params => {
       if (params) {
@@ -35,12 +37,10 @@ export class ProductPage {
   }
 
   async addToCart() {
+    this.cartHandler.addProductToCart(this.product)
     const modal = await this.modalCtrl.create({
       component: CartModal,
-      cssClass: 'my-custom-class',
-      componentProps: {
-        product: JSON.stringify(this.product)
-      }
+      cssClass: 'todo'
     });
     return await modal.present();
   }

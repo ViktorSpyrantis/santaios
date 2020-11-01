@@ -9,13 +9,14 @@ import { ModalController } from '@ionic/angular';
 export class CartModal {
   @Input() product: any;
 
+  title: string = "ΚΑΛΑΘΙ";
+  productsInCart = [];
+
   constructor(
     private modalCtrl: ModalController
   ) {}
 
   dismiss() {
-    // using the injected ModalController this page
-    // can "dismiss" itself and optionally pass back data
     this.modalCtrl.dismiss({
       'dismissed': true
     });

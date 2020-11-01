@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { ModalController } from '@ionic/angular';
+import { CartModal } from 'src/modals/cart-modal/cart-modal';
 
 @Component({
   selector: 'custom-footer',
@@ -34,7 +36,7 @@ export class CustomFooter {
     },
     {
       id: "cart",
-      link: "",
+      link: "CART",
       icon: "assets/icon/shopping_cart.svg"
     },
     // {
@@ -51,11 +53,28 @@ export class CustomFooter {
 
   constructor(
     private router: Router,
-    private location: Location
+    private location: Location,
+    private modalCtrl: ModalController
   ) {}
 
+  // FIXME : fix things here 
   openLink(link: string) {
+    // try {
+      console.log(this.modalCtrl);
+      this.modalCtrl.dismiss({'dismissed': true});
+    // } catch(err){}
+
     if(link == 'BACK') this.location.back();
+    else if (link == 'CART') this.openCart();
     else this.router.navigate(['/' + link]);
   }
+
+  async openCart() {
+    const modal = await this.modalCtrl.create({
+      component: CartModal,
+      cssClass: 'todo'
+    });
+    return await modal.present();
+  }
+
 }
