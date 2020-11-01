@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { CartModal } from 'src/modals/cart-modal/cart-modal';
 
 @Component({
   selector: 'product-page',
@@ -13,7 +15,8 @@ export class ProductPage {
   cartIcon = "assets/icon/shopping_cart.svg";
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
+    private modalCtrl: ModalController
   ) { 
     this.route.queryParams.subscribe(params => {
       if (params) {
@@ -31,8 +34,15 @@ export class ProductPage {
     return parseFloat(this.product.price.replace(/,/g, '.')) * this.amountInKilos;
   }
 
-  addToCart() {
-    
+  async addToCart() {
+    const modal = await this.modalCtrl.create({
+      component: CartModal,
+      cssClass: 'my-custom-class',
+      componentProps: {
+        product: JSON.stringify(this.product)
+      }
+    });
+    return await modal.present();
   }
 
 }
