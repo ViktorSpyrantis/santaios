@@ -8,7 +8,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductPage {
   product: any;
-  amount: number =  0;
+  amountInKilos: number =  0.5;
+  bg_img = "assets/icon/white_bg.svg";
+  cartIcon = "assets/icon/shopping_cart.svg";
 
   constructor(
     private route: ActivatedRoute, 
@@ -23,6 +25,14 @@ export class ProductPage {
         this.product = JSON.parse(params.product);
       }
     });
+  }
+
+  calculatePrice(): number {
+    return parseFloat(this.product.price.replace(/,/g, '.')) * this.amountInKilos;
+  }
+
+  addToCart() {
+    
   }
 
 }
