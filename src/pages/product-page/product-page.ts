@@ -37,12 +37,15 @@ export class ProductPage {
   }
 
   async addToCart() {
+    this.product.weight = this.amountInKilos;
     this.cartHandler.addProductToCart(this.product)
-    const modal = await this.modalCtrl.create({
-      component: CartModal,
-      cssClass: 'todo'
-    });
-    return await modal.present();
+    console.log('PRODUCT : ', this.product)
+    // FIXME : see if below code will be used
+    // const modal = await this.modalCtrl.create({
+    //   component: CartModal,
+    //   cssClass: 'todo'
+    // });
+    // return await modal.present();
   }
 
 }

@@ -1,10 +1,19 @@
-<div class="cart-modal">
-  <h2></h2>
-  <div class="products" *ngFor="productsInCart">
-    <img class="image" src="{{product.image}}">
+<div id="cart-modal">
+  <h2 class="title">{{title}}</h2>
+  <div class="product" *ngFor="let product of productsInCart">
+    <div class="image-container">
+      <img class="image" src="{{product.image}}">
+    </div>
+
     <div class="all-text">
-      <p class="name">{{product.name}}</p>
-      <p class="p"></p>
+      <p class="text-line">
+        <span class="name">{{product.name}}</span>
+        <span class="weight">{{product.weight}}</span>
+      </p>
+      <p class="text-line">
+        <span class="price">Τιμή κιλού: </span>
+        <span class="price">{{product.price}}</span>
+      </p>
     </div>
   </div>
 </div>

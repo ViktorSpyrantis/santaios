@@ -21,7 +21,8 @@ export class GoogleDriveHandler {
               name: _data.feed.entry[(i*4) + 0].content.$t,
               price: _data.feed.entry[(i*4) + 1].content.$t,
               image: _data.feed.entry[(i*4) + 2].content.$t,
-              info: _data.feed.entry[(i*4) + 3].content.$t
+              info: _data.feed.entry[(i*4) + 3].content.$t,
+              weight: null
             }
           }
         )
@@ -41,7 +42,8 @@ export class GoogleDriveHandler {
               name: _data.feed.entry[(i*4) + 0].content.$t,
               price: _data.feed.entry[(i*4) + 1].content.$t,
               image: _data.feed.entry[(i*4) + 2].content.$t,
-              info: _data.feed.entry[(i*4) + 3].content.$t
+              info: _data.feed.entry[(i*4) + 3].content.$t,
+              weight: null
             }
           }
         )

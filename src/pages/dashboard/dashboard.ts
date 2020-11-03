@@ -18,7 +18,8 @@ export class Dashboard {
     name: string,
     price: string,
     image: string,
-    info: string
+    info: string,
+    weight: number
   }[];
 
   weeklyOffersTitle = "Προσφορές εβδομάδος";
@@ -26,7 +27,8 @@ export class Dashboard {
     name: string,
     price: string,
     image: string,
-    info: string
+    info: string,
+    weight: number
   }[];
   bgImage: string = "assets/img/bg.png"
   logoBg: string = "assets/icon/logo_bg.svg"

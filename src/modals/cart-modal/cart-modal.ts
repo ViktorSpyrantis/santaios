@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { CartHandler } from 'src/providers/cart-handler';
 
 @Component({
   selector: 'cart-modal',
@@ -13,8 +14,11 @@ export class CartModal {
   productsInCart = [];
 
   constructor(
-    private modalCtrl: ModalController
-  ) {}
+    private modalCtrl: ModalController,
+    private cartHandler: CartHandler
+  ) {
+    this.productsInCart = cartHandler.getProductsInCart();
+  }
 
   dismiss() {
     this.modalCtrl.dismiss({
