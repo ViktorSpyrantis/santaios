@@ -1,14 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="385" height="229" viewBox="0 0 385 229">
-  <defs>
-    <filter id="Subtraction_4" x="0" y="0" width="385" height="229" filterUnits="userSpaceOnUse">
-      <feOffset dy="3" input="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feFlood flood-opacity="0.161"/>
-      <feComposite operator="in" in2="blur"/>
-      <feComposite in="SourceGraphic"/>
-    </filter>
-  </defs>
-  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Subtraction_4)">
-    <path id="Subtraction_4-2" data-name="Subtraction 4" d="M-1159,290a247.247,247.247,0,0,1-45.283-4.177A243.924,243.924,0,0,1-1246.8,273.8a244.769,244.769,0,0,1-39-19.123,246.61,246.61,0,0,1-34.731-25.466,247.163,247.163,0,0,1-29.7-31.055q-.379-.474-.758-.95V79h375V207.9a247.836,247.836,0,0,1-21.462,21.307,246.51,246.51,0,0,1-34.73,25.466,244.848,244.848,0,0,1-39,19.123,243.961,243.961,0,0,1-42.521,12.028A247.268,247.268,0,0,1-1159,290Z" transform="translate(1360 -73)" fill="#fff"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="374.999" height="211" viewBox="0 0 374.999 211">
+  <path id="Subtraction_4" data-name="Subtraction 4" d="M-1159,290a247.247,247.247,0,0,1-45.283-4.177A243.924,243.924,0,0,1-1246.8,273.8a244.769,244.769,0,0,1-39-19.123,246.61,246.61,0,0,1-34.731-25.466,247.163,247.163,0,0,1-29.7-31.055q-.379-.474-.758-.95V79h375V207.9a247.836,247.836,0,0,1-21.462,21.307,246.51,246.51,0,0,1-34.73,25.466,244.848,244.848,0,0,1-39,19.123,243.961,243.961,0,0,1-42.521,12.028A247.268,247.268,0,0,1-1159,290Z" transform="translate(1351 -79.001)" fill="#fff"/>
 </svg>

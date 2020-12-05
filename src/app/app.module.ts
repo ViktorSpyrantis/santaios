@@ -22,6 +22,7 @@ import { ProductCategories } from 'src/providers/product-categories';
 import { ProductPage } from 'src/pages/product-page/product-page';
 import { CartModal } from 'src/modals/cart-modal/cart-modal';
 import { CartHandler } from 'src/providers/cart-handler';
+import { OrderModal } from 'src/modals/order-modal/order-modal';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CartHandler } from 'src/providers/cart-handler';
     CustomFooter,
     CategoryList,
     ProductPage,
-    CartModal
+    CartModal,
+    OrderModal
   ],
   entryComponents: [
     // CategoryButton,

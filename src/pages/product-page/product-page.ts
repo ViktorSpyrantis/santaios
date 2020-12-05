@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { CartModal } from 'src/modals/cart-modal/cart-modal';
 import { CartHandler } from 'src/providers/cart-handler';
@@ -12,16 +12,18 @@ import { CartHandler } from 'src/providers/cart-handler';
 export class ProductPage {
   product: any;
   amountInKilos: number =  0.5;
-  bg_img = "assets/icon/white_bg.svg";
+  bg_img = "assets/icon/white_bg.svg";        // FIXME : change the image
   cartIcon = "assets/icon/shopping_cart.svg";
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private modalCtrl: ModalController,
     private cartHandler: CartHandler
   ) { 
     this.route.queryParams.subscribe(params => {
       if (params) {
+        // FIXME : remove this maybe
         // this.product = {
         //   name: params.name,
         //   image: params.image,
@@ -40,6 +42,7 @@ export class ProductPage {
     this.product.weight = this.amountInKilos;
     this.cartHandler.addProductToCart(this.product)
     console.log('PRODUCT : ', this.product)
+    this.router.navigate(['/dashboard']);
     // FIXME : see if below code will be used
     // const modal = await this.modalCtrl.create({
     //   component: CartModal,

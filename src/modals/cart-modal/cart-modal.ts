@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CartHandler } from 'src/providers/cart-handler';
+import { OrderModal } from '../order-modal/order-modal';
 
 @Component({
   selector: 'cart-modal',
@@ -18,6 +19,14 @@ export class CartModal {
     private cartHandler: CartHandler
   ) {
     this.productsInCart = cartHandler.getProductsInCart();
+  }
+
+  async openOrderModal() {
+    const modal = await this.modalCtrl.create({
+      component: OrderModal,
+      cssClass: 'todo'
+    });
+    return await modal.present();
   }
 
   dismiss() {

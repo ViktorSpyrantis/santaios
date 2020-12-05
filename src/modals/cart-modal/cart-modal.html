@@ -1,19 +1,32 @@
 <div id="cart-modal">
+
   <h2 class="title">{{title}}</h2>
+
   <div class="product" *ngFor="let product of productsInCart">
     <div class="image-container">
-      <img class="image" src="{{product.image}}">
+      <img class="image right-margin" src="{{product.image}}">
     </div>
 
     <div class="all-text">
       <p class="text-line">
-        <span class="name">{{product.name}}</span>
-        <span class="weight">{{product.weight}}</span>
+        <span class="light-black right-margin">{{product.name}}</span>
+        <span class="bold-black">{{product.weight}}</span>
+        <span class="bold-black"> kg</span>
       </p>
       <p class="text-line">
-        <span class="price">Τιμή κιλού: </span>
-        <span class="price">{{product.price}}</span>
+        <span class="light-black right-margin">Τιμή κιλού: </span>
+        <span class="bold-black">{{product.price}}</span>
       </p>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <div class="forward-button" (click)="openOrderModal()">
+      <!-- <div class="cart-icon-container"><img class="cart-icon" src=""></div> -->
+      <div class="icon-container">
+        <ion-icon name="arrow-forward-outline" class="icon"></ion-icon>
+      </div>
+      <div class="text">Αγορά</div>
     </div>
   </div>
 </div>

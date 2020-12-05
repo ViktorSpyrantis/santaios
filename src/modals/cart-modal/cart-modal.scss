@@ -1,44 +1,90 @@
 #cart-modal {
   height: 100%;
+  background-color: rgba(235, 236, 235, 0.945);
+
   .title {
+    text-align: center;
     margin-bottom: 7vw; 
     font-size: 6vw;
     font-weight: 500;
     color: rgb(88, 87, 87);
+  }
 
-    .product {
-      .image-container {
+  .bold-black {
+    font-size: 4vw;
+    font-weight: 800;
+    color: rgb(12, 12, 12);
+  }
+  .light-black {
+    font-size: 4vw;
+    font-weight: 400;
+    color: rgb(12, 12, 12);
+  }
+  .right-margin {
+    margin-right: 3vw;
+  }
+
+
+  .product {
+    display: flex;
+    padding: 2vw 5vw;
+    .image-container {
+      display: inline-block;
+      width: 25vw;
+      .image {
         display: inline-block;
-        width: 25vw;
-        .image {
-          display: inline-block;
-          width: 25vw;
-        }
-      }
-      .all-text {
-        display: inline-block;
-        width: 60vw;
-        .text-line {
-          display: inline-block;
-          width: 60vw;
-          margin: 0;
-          .name {
-            font-size: 4vw;
-            font-weight: 700;
-            color: rgb(12, 12, 12);
-          }
-          .weight {
-            font-size: 4vw;
-            font-weight: 400;
-            color: rgb(12, 12, 12);
-          }
-          .price {
-            font-size: 4vw;
-            font-weight: 400;
-            color: rgb(12, 12, 12);
-          }
-        }
+        width: 21vw;
       }
     }
+
+    .all-text {
+      display: inline-block;
+      width: 60vw;
+      vertical-align: middle;
+      margin-top: auto;
+      margin-bottom: auto;
+      .text-line {
+        display: inline-block;
+        width: 60vw;
+        margin: 0;
+      }
+    }
+  }
+
+  .button-container {
+    width: 100%;
+    text-align: center;
+    .forward-button {
+      text-align: center;
+      margin-top: 4vw;
+      border-radius: 7vw;
+      padding: 2vw;
+      background-color: white;
+      height: 12vw;
+      // width: 70vw;
+      display: inline-block;
+      font-size: 5vw;
+      color: rgb(18, 99, 54);
+      .icon-container {
+        width: 8.5vw;
+        height: 8.5vw;
+        background-color: rgb(18, 99, 54);
+        border-radius: 50%;
+        float: left;
+        align-items: center;
+        .icon {
+          color: white;
+          display: inline-block;
+          position: relative;
+          top: 1.8vw;
+        }
+      }
+      .text {
+        margin-top: 1.5vw;
+        margin-left: 1.5vw;
+        display: inline-block;
+      
+  }
+}
   }
 }
