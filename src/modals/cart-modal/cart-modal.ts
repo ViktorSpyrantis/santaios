@@ -12,6 +12,7 @@ export class CartModal {
   @Input() product: any;
 
   title: string = "ΚΑΛΑΘΙ";
+  buttonLabel: string = "Αγορά";
   productsInCart = [];
 
   constructor(

@@ -30,11 +30,8 @@
       </div>
       <p class="price" >{{calculatePrice() | number : '1.2-2'}} €</p>
 
-      <button class="cart-button" type="button" (click)="addToCart()">
-        <div class="cart-icon-container"><img class="cart-icon" src="{{cartIcon}}"></div>
-        <div class="text">Προσθήκη στο καλάθι</div>
-      </button>
-
+      <cta-button [icon]="cartIcon" [label]="buttonLabel" [disabled]="false" (onClick)="addToCart()">
+      </cta-button>
     </div>
   </div>
 

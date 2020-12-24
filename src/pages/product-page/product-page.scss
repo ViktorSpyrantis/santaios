@@ -125,34 +125,6 @@
         font-weight: 800;
         color: rgb(35, 37, 34);
       }
-      .cart-button {
-        margin-top: 4vw;
-        border-radius: 7vw;
-        padding: 2vw;
-        background-color: white;
-        height: 12vw;
-        width: 70vw;
-        display: inline-block;
-        font-size: 5vw;
-        color: rgb(18, 99, 54);
-        .cart-icon-container {
-          width: 8.5vw;
-          height: 8.5vw;
-          background-color: rgb(18, 99, 54);
-          border-radius: 50%;
-          float: left;
-          align-items: center;
-          .cart-icon {
-            width: 5vw;
-            background-color: rgb(18, 99, 54);
-            position: relative;
-            top: 1.8vw;
-          }
-        }
-        .text {
-          margin-top: 1.5vw;
-        }
-      }
     }
   }
 }

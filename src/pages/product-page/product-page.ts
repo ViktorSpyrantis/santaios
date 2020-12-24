@@ -14,6 +14,7 @@ export class ProductPage {
   amountInKilos: number =  0.5;
   bg_img = "assets/icon/white_bg.svg";        // FIXME : change the image
   cartIcon = "assets/icon/shopping_cart.svg";
+  buttonLabel = "Προσθήκη στο καλάθι";
 
   constructor(
     private route: ActivatedRoute,

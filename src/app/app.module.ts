@@ -23,6 +23,7 @@ import { ProductPage } from 'src/pages/product-page/product-page';
 import { CartModal } from 'src/modals/cart-modal/cart-modal';
 import { CartHandler } from 'src/providers/cart-handler';
 import { OrderModal } from 'src/modals/order-modal/order-modal';
+import { CtaButton } from 'src/components/cta-button/cta-button';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { OrderModal } from 'src/modals/order-modal/order-modal';
     CategoryList,
     ProductPage,
     CartModal,
-    OrderModal
+    OrderModal,
+    CtaButton
   ],
   entryComponents: [
     // CategoryButton,

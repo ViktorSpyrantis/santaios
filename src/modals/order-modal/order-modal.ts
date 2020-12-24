@@ -11,6 +11,8 @@ import { CartHandler } from 'src/providers/cart-handler';
 export class OrderModal {
 
   title: string = "ΠΡΟΣΩΠΙΚΑ ΣΤΟΙΧΕΙΑ";
+  buttonLabel: string = "Επιβεβαίωση";
+  
   forms = {
     name: "Όνομα",
     surname: "Επώνυμο",
@@ -27,6 +29,10 @@ export class OrderModal {
     private modalCtrl: ModalController,
   ) {
     
+  }
+
+  proceedWithOrder() {
+    console.log("$$$$")
   }
 
   dismiss() {

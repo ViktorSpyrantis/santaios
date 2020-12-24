@@ -21,12 +21,7 @@
   </div>
 
   <div class="button-container">
-    <div class="forward-button" (click)="openOrderModal()">
-      <!-- <div class="cart-icon-container"><img class="cart-icon" src=""></div> -->
-      <div class="icon-container">
-        <ion-icon name="arrow-forward-outline" class="icon"></ion-icon>
-      </div>
-      <div class="text">Αγορά</div>
-    </div>
+    <cta-button [label]="buttonLabel" [disabled]="false" (onClick)="openOrderModal()">
+    </cta-button>
   </div>
 </div>

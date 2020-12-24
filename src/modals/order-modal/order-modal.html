@@ -8,44 +8,49 @@
       <ion-input required="true" class="input"></ion-input>
     </ion-item>
 
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="name input-wrapper">
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="surname input-wrapper">
       <ion-label class="label" position="floating">{{forms.surname}}</ion-label>
       <ion-input class="input"></ion-input>
     </ion-item>
 
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="name input-wrapper">
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="phone input-wrapper">
       <ion-label class="label" position="floating">{{forms.phone}}</ion-label>
       <ion-input inputmode="tel" class="input"></ion-input>
     </ion-item>
 
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="name input-wrapper">
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="city input-wrapper">
       <ion-label class="label" position="floating">{{forms.city}}</ion-label>
       <ion-input autocapitalize class="input"></ion-input>
     </ion-item>
 
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="name input-wrapper">
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="state input-wrapper">
       <ion-label class="label" position="floating">{{forms.state}}</ion-label>
       <ion-input class="input"></ion-input>
     </ion-item>
 
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="name input-wrapper">
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="zip input-wrapper">
       <ion-label class="label" position="floating">{{forms.zip}}</ion-label>
       <ion-input class="input"></ion-input>
     </ion-item>
 
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="name input-wrapper">
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="street input-wrapper">
       <ion-label class="label" position="floating">{{forms.street}}</ion-label>
       <ion-input class="input"></ion-input>
     </ion-item>
 
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="name input-wrapper">
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="number input-wrapper">
       <ion-label class="label" position="floating">{{forms.number}}</ion-label>
       <ion-input class="input"></ion-input>
     </ion-item>
 
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="name input-wrapper">
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="email input-wrapper">
       <ion-label class="label" position="floating">{{forms.email}}</ion-label>
       <ion-input inputmode="email" class="input"></ion-input>
     </ion-item>
+  </div>
+
+  <div class="button-container">
+    <cta-button [label]="buttonLabel" [disabled]="false" (onClick)="proceedWithOrder()">
+    </cta-button>
   </div>
 </div>
