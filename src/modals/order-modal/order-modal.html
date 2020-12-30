@@ -5,12 +5,12 @@
   <div class="form-container">
     <ion-item color="rgba(235, 236, 235, 0.945)" class="name input-wrapper">
       <ion-label class="label" position="floating">{{forms.name}}</ion-label>
-      <ion-input required="true" class="input"></ion-input>
+      <ion-input required="true" [(ngModel)]="name" class="input"></ion-input>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="surname input-wrapper">
       <ion-label class="label" position="floating">{{forms.surname}}</ion-label>
-      <ion-input class="input"></ion-input>
+      <ion-input class="input" [(ngModel)]="surname"></ion-input>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="phone input-wrapper">

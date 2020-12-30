@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -24,6 +25,7 @@ import { CartModal } from 'src/modals/cart-modal/cart-modal';
 import { CartHandler } from 'src/providers/cart-handler';
 import { OrderModal } from 'src/modals/order-modal/order-modal';
 import { CtaButton } from 'src/components/cta-button/cta-button';
+import { OrderByEmailHandler } from 'src/providers/order-by-email-handler';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { CtaButton } from 'src/components/cta-button/cta-button';
     GoogleDriveHandler,
     HttpClient,
     ProductCategories,
-    CartHandler
+    CartHandler,
+    OrderByEmailHandler,
+    EmailComposer
   ],
   bootstrap: [AppComponent]
 })

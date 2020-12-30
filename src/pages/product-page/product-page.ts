@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { CartModal } from 'src/modals/cart-modal/cart-modal';
 import { CartHandler } from 'src/providers/cart-handler';
+import { OrderByEmailHandler } from 'src/providers/order-by-email-handler';
 
 @Component({
   selector: 'product-page',
@@ -19,7 +20,6 @@ export class ProductPage {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private modalCtrl: ModalController,
     private cartHandler: CartHandler
   ) { 
     this.route.queryParams.subscribe(params => {

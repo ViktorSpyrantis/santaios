@@ -1,7 +1,7 @@
 
 import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { CartHandler } from 'src/providers/cart-handler';
+import { OrderByEmailHandler } from 'src/providers/order-by-email-handler';
 
 @Component({
   selector: 'order-modal',
@@ -27,12 +27,13 @@ export class OrderModal {
 
   constructor(
     private modalCtrl: ModalController,
+    private emailOrder: OrderByEmailHandler
   ) {
     
   }
 
   proceedWithOrder() {
-    console.log("$$$$")
+    this.emailOrder.sendOrder();
   }
 
   dismiss() {
