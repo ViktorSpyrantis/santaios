@@ -12,7 +12,9 @@ export class CartModal {
   @Input() product: any;
 
   title: string = "ΚΑΛΑΘΙ";
-  buttonLabel: string = "Αγορά";
+  confirmButtonLabel: string = "Αγορά";
+  exitButtonLabel: string = "Έξοδος";
+  emptyCartText: string = "Το καλαθι σας είναι άδειο";
   productsInCart = [];
 
   constructor(
@@ -23,6 +25,7 @@ export class CartModal {
   }
 
   async openOrderModal() {
+    this.dismiss();
     const modal = await this.modalCtrl.create({
       component: OrderModal,
       cssClass: 'todo'

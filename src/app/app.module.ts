@@ -26,6 +26,7 @@ import { CartHandler } from 'src/providers/cart-handler';
 import { OrderModal } from 'src/modals/order-modal/order-modal';
 import { CtaButton } from 'src/components/cta-button/cta-button';
 import { OrderByEmailHandler } from 'src/providers/order-by-email-handler';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { OrderByEmailHandler } from 'src/providers/order-by-email-handler';
     IonicModule.forRoot(), 
     AppRoutingModule,
     // HttpHandler,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     StatusBar,

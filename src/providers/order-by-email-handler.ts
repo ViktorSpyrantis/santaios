@@ -1,11 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { CartHandler } from './cart-handler';
 
 @Injectable()
 export class OrderByEmailHandler {
 
-  private api = "https://mailthis.to/sandorclegane34@yahoo.gr";
+  private email = "sandorclegane34@yahoo.gr";
+  private api = "https://formspree.io/f/mdoppbed"
 
   constructor(
     private emailComposer: EmailComposer,
@@ -14,15 +16,26 @@ export class OrderByEmailHandler {
 
   }
 
-  public sendOrder() {
-    const email = "sandorclegane34@yahoo.gr";
+  public sendOrder(customerInfo: {
+    name: string,
+    surname: string,
+    phone: string,
+    city: string,
+    regUnit: string,
+    zip: string,
+    street: string,
+    number: string,
+    email: string
+  }) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    this.http.post('https://formspree.io/f/mdoppbed',
+    this.http.post(this.api,
       { 
-        address: "viktor", 
-        phone: email,
-        email: "", 
-        message: "message" 
+        FULL_NAME: customerInfo.name + ' ' + customerInfo.surname, 
+        ADDRESS: customerInfo.street + ' ' + customerInfo.number + ', ' + customerInfo.city + ' (' + customerInfo.regUnit + '), ' + customerInfo.zip,
+        PHONE: customerInfo.phone,
+        EMAIL: customerInfo.email,
+        PURCHASE: "TODO"
+
       },
       { 'headers': headers }).subscribe(
         response => {

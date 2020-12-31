@@ -5,52 +5,55 @@
   <div class="form-container">
     <ion-item color="rgba(235, 236, 235, 0.945)" class="name input-wrapper">
       <ion-label class="label" position="floating">{{forms.name}}</ion-label>
-      <ion-input required="true" [(ngModel)]="name" class="input"></ion-input>
+      <ion-input required="true" autocapitalize="on" [(ngModel)]="customerInfo.name" class="input"></ion-input>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="surname input-wrapper">
       <ion-label class="label" position="floating">{{forms.surname}}</ion-label>
-      <ion-input class="input" [(ngModel)]="surname"></ion-input>
+      <ion-input class="input" [(ngModel)]="customerInfo.surname"></ion-input>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="phone input-wrapper">
       <ion-label class="label" position="floating">{{forms.phone}}</ion-label>
-      <ion-input inputmode="tel" class="input"></ion-input>
+      <ion-input type="number" inputmode="tel" class="input" [(ngModel)]="customerInfo.phone"
+        minlength="10" maxlength="10"></ion-input>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="city input-wrapper">
       <ion-label class="label" position="floating">{{forms.city}}</ion-label>
-      <ion-input autocapitalize class="input"></ion-input>
+      <ion-input autocapitalize class="input" [(ngModel)]="customerInfo.city"></ion-input>
     </ion-item>
 
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="state input-wrapper">
-      <ion-label class="label" position="floating">{{forms.state}}</ion-label>
-      <ion-input class="input"></ion-input>
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="reg-unit input-wrapper">
+      <ion-label class="label" position="floating">{{forms.regUnit}}</ion-label>
+      <ion-select class="input" [(ngModel)]="customerInfo.regUnit">
+        <ion-select-option *ngFor="let unit of regionalUnits" [value]="unit">{{unit}}</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="zip input-wrapper">
       <ion-label class="label" position="floating">{{forms.zip}}</ion-label>
-      <ion-input class="input"></ion-input>
+      <ion-input class="input" type="number" inputmode="numeric" [(ngModel)]="customerInfo.zip"></ion-input>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="street input-wrapper">
       <ion-label class="label" position="floating">{{forms.street}}</ion-label>
-      <ion-input class="input"></ion-input>
+      <ion-input class="input" [(ngModel)]="customerInfo.street"></ion-input>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="number input-wrapper">
       <ion-label class="label" position="floating">{{forms.number}}</ion-label>
-      <ion-input class="input"></ion-input>
+      <ion-input class="input" type="number" inputmode="numeric" [(ngModel)]="customerInfo.number"></ion-input>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="email input-wrapper">
       <ion-label class="label" position="floating">{{forms.email}}</ion-label>
-      <ion-input inputmode="email" class="input"></ion-input>
+      <ion-input inputmode="email" type="email" inputmode="email" class="input" [(ngModel)]="customerInfo.email"></ion-input>
     </ion-item>
   </div>
 
   <div class="button-container">
-    <cta-button [label]="buttonLabel" [disabled]="false" (onClick)="proceedWithOrder()">
+    <cta-button [label]="buttonLabel" [disabled]="false" (onClick)="presentAlertConfirm()">
     </cta-button>
   </div>
 </div>

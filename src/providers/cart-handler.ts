@@ -17,4 +17,8 @@ export class CartHandler {
     return this.productList;
   }
 
+  public deleteProducts() {
+    this.productList = [];
+  }
+
 }
