@@ -43,7 +43,8 @@ export class GoogleDriveHandler {
               price: _data.feed.entry[(i*4) + 1].content.$t,
               image: _data.feed.entry[(i*4) + 2].content.$t,
               info: _data.feed.entry[(i*4) + 3].content.$t,
-              weight: null
+              weight: null,       // FIXME : add logics here
+              quantity: null
             }
           }
         )

@@ -11,11 +11,22 @@ import { OrderByEmailHandler } from 'src/providers/order-by-email-handler';
   styleUrls: ['product-page.scss'],
 })
 export class ProductPage {
-  product: any;
+
+  product: {
+    image: string,
+    info: string,
+    name: string,
+    price: string,
+    weight: number,
+    quantity: number
+  };
+
+  priceBasedOnWeight: boolean;
   amountInKilos: number =  0.5;
   bg_img = "assets/icon/white_bg.svg";        // FIXME : change the image
   cartIcon = "assets/icon/shopping_cart.svg";
   buttonLabel = "Προσθήκη στο καλάθι";
+
 
   constructor(
     private route: ActivatedRoute,
@@ -31,6 +42,14 @@ export class ProductPage {
         //   price: params.price
         // }
         this.product = JSON.parse(params.product);
+        
+        // logics for weight or quantity based price
+        if (parseFloat(this.product.price) > 0) {
+          this.priceBasedOnWeight = true;
+        } else {
+          this.priceBasedOnWeight = false;
+          this.product.price = '' + parseFloat(this.product.price) * -1
+        }
       }
     });
   }

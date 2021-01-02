@@ -3,7 +3,14 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CartHandler {
 
-  private productList = [];
+  private productList: {
+    image: string,
+    info: string,
+    name: string,
+    price: string,
+    weight: number,
+    quantity: number
+  }[] = [];
 
   constructor() { 
     console.log(this.productList)

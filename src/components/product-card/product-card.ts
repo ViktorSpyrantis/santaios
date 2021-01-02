@@ -17,7 +17,14 @@ export class ProductCard {
   // @Input() name: string;
   // @Input() image: string;
   // @Input() price: string;
-  @Input() product: any;
+  @Input() product: {
+    image: string,
+    info: string,
+    name: string,
+    price: string,
+    weight: number,
+    quantity: number
+  };
 
   day: string;
   dayIndexMap = new Map([

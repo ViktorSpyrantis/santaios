@@ -16,17 +16,20 @@ export class OrderByEmailHandler {
 
   }
 
-  public sendOrder(customerInfo: {
-    name: string,
-    surname: string,
-    phone: string,
-    city: string,
-    regUnit: string,
-    zip: string,
-    street: string,
-    number: string,
-    email: string
-  }) {
+  public sendOrderEmail(
+    customerInfo: {
+      name: string,
+      surname: string,
+      phone: string,
+      city: string,
+      regUnit: string,
+      zip: string,
+      street: string,
+      number: string,
+      email: string
+    },
+    products: string
+  ) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     this.http.post(this.api,
       { 
@@ -34,7 +37,7 @@ export class OrderByEmailHandler {
         ADDRESS: customerInfo.street + ' ' + customerInfo.number + ', ' + customerInfo.city + ' (' + customerInfo.regUnit + '), ' + customerInfo.zip,
         PHONE: customerInfo.phone,
         EMAIL: customerInfo.email,
-        PURCHASE: "TODO"
+        PURCHASE: products
 
       },
       { 'headers': headers }).subscribe(

@@ -61,11 +61,25 @@ export class OrderModal {
 
   // FIXME : handle all functionality on a page rather than on modal maybe
   proceedWithOrder() {
-    this.emailOrder.sendOrder(this.customerInfo);
+    this.emailOrder.sendOrderEmail(this.customerInfo, this.configProductsString());
     this.dismiss();
     this.cart.deleteProducts();
   }
 
+  private configProductsString(): string {
+    let products: string = '';
+
+    this.cart.getProductsInCart().forEach(prod => {
+      products += 
+        prod.name + '\r\n' +
+        'ΤΙΜΗ: ' + (parseFloat(prod.price.replace(/,/g, '.')) * (prod.weight ? prod.weight : prod.quantity)) + 
+        '\r\n \r\n'
+    })
+
+    return products;
+  }
+
+  // Show alert popup for order confirmation
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
