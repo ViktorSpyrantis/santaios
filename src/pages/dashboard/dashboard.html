@@ -7,6 +7,7 @@
 
   <category-list></category-list>
 
+  <!-- FIXME : DELETE ALL THESE MAYBE -->
   <!-- <div *ngIf="loadingComplete" class="horizontal-scroll">
     <category-button *ngFor="let cat of categoryList" [name]="cat.greek" [icon]="cat.icon" 
        (click)="openCategory(cat.id, cat.page_title)">
@@ -17,7 +18,7 @@
 <!-- [name]="prod.name" [image]="prod.image" [price]="prod.price"  -->
   
 
-  <div class="card-container" *ngIf="loadingComplete">
+  <div class="card-container" *ngIf="loadingComplete && suggestedProducts">
     <p class="cards-title">{{suggestedProductsTitle}}</p>
     <div class="horizontal-scroll">
       <product-card *ngFor="let prod of suggestedProducts" [small]="false" [product]="prod.product">
@@ -25,7 +26,7 @@
     </div>
   </div>
 
-  <div class="card-container" *ngIf="loadingComplete" >
+  <div class="card-container" *ngIf="loadingComplete && weeklyOffers" >
     <p class="cards-title">{{weeklyOffersTitle}}</p>
     <div class="horizontal-scroll">
       <product-card *ngFor="let prod of weeklyOffers; let i = index" [small]="false" [product]="prod.product" [dayIndex]="i">

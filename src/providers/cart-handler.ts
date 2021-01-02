@@ -24,6 +24,10 @@ export class CartHandler {
     return this.productList;
   }
 
+  public removeProduct(index: number) {
+    this.productList.splice(index, 1);
+  }
+
   public deleteProducts() {
     this.productList = [];
   }

@@ -8,8 +8,11 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class ProductCard {
 
-  private likeIcon: string = "assets/icon/heart.svg";
-  private weightText: string = "το κιλό";
+  likeIcon: string = "assets/icon/heart.svg";
+  weightText: string = "το κιλό";
+  pieceText: string = "το τεμάχιο";
+  shownPrice: string;
+  priceBasedOnWeight: boolean;
 
   @Input() small: boolean;
   @Input() dayIndex?: number;
@@ -40,7 +43,17 @@ export class ProductCard {
 
   constructor(
     private router: Router,
-  ) {}
+  ) { }
+
+  ngOnInit() {
+    if (this.product && parseFloat(this.product.price) < 0) {
+      this.shownPrice = ((parseFloat(this.product.price.replace(',', '.')) * -1) + ' €').replace('.', ',');
+      this.priceBasedOnWeight = false;
+    } else { 
+      this.shownPrice = this.product.price + ' €';
+      this.priceBasedOnWeight = true;
+    }
+  }
 
   openProduct() {
     let navigationExtras: NavigationExtras = {

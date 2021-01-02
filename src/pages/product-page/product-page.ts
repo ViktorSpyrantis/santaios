@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
-import { CartModal } from 'src/modals/cart-modal/cart-modal';
 import { CartHandler } from 'src/providers/cart-handler';
-import { OrderByEmailHandler } from 'src/providers/order-by-email-handler';
 
 @Component({
   selector: 'product-page',
@@ -22,7 +19,8 @@ export class ProductPage {
   };
 
   priceBasedOnWeight: boolean;
-  amountInKilos: number =  0.5;
+  kilos: number =  0.5;
+  pieces: number = 1;
   bg_img = "assets/icon/white_bg.svg";        // FIXME : change the image
   cartIcon = "assets/icon/shopping_cart.svg";
   buttonLabel = "Προσθήκη στο καλάθι";
@@ -44,22 +42,22 @@ export class ProductPage {
         this.product = JSON.parse(params.product);
         
         // logics for weight or quantity based price
-        if (parseFloat(this.product.price) > 0) {
+        if (parseFloat(this.product.price.replace(',', '.')) > 0) {
           this.priceBasedOnWeight = true;
         } else {
           this.priceBasedOnWeight = false;
-          this.product.price = '' + parseFloat(this.product.price) * -1
+          this.product.price = '' + parseFloat(this.product.price.replace(',', '.')) * -1
         }
       }
     });
   }
 
   calculatePrice(): number {
-    return parseFloat(this.product.price.replace(/,/g, '.')) * this.amountInKilos;
+    return parseFloat(this.product.price.replace(',', '.')) * (this.priceBasedOnWeight ? this.kilos : this.pieces);
   }
 
   async addToCart() {
-    this.product.weight = this.amountInKilos;
+    this.priceBasedOnWeight ? this.product.weight = this.kilos : this.product.quantity = this.pieces;
     this.cartHandler.addProductToCart(this.product)
     console.log('PRODUCT : ', this.product)
     this.router.navigate(['/dashboard']);

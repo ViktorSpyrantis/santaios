@@ -13,7 +13,7 @@
       <img class="product-img" src="{{product.image}}">
     </div> -->
 
-    <div class="info-table">
+    <div class="info-table" *ngIf="product.info != '-'">
       <h3 class="title">Πληροφορίες</h3>
       <div class="value-container">
         <!-- FIXME : Remove this shit -->
@@ -24,11 +24,11 @@
 
     <div class="purchase-area">
       <div class="amount-selector">
-        <p class="sign" (click)="30 > amountInKilos ? amountInKilos = amountInKilos + 0.5 : null">+</p>
-        <p class="amount">{{amountInKilos}}</p>
-        <p class="sign" (click)="amountInKilos > 0 ? amountInKilos = amountInKilos - 0.5 : null">-</p>
+        <p class="sign" (click)="priceBasedOnWeight ? (30 > kilos ? kilos = kilos + 0.5 : null) : (40 > pieces ? pieces = pieces + 1 : null)">+</p>
+        <p class="amount">{{priceBasedOnWeight ? kilos : pieces}}</p>
+        <p class="sign" (click)="priceBasedOnWeight ? (kilos > 0 ? kilos = kilos - 0.5 : null) : (pieces > 0 ? pieces = pieces - 1 : null)">-</p>
       </div>
-      <p class="price" >{{calculatePrice() | number : '1.2-2'}} €</p>
+      <p class="price" >{{(calculatePrice() | number : '1.2-2').replace('.', ',')}} €</p>
 
       <cta-button [icon]="cartIcon" [label]="buttonLabel" [disabled]="false" (onClick)="addToCart()">
       </cta-button>

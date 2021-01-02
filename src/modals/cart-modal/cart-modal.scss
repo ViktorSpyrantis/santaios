@@ -1,5 +1,5 @@
 #cart-modal {
-  min-height: 100%;
+  min-height: 100% !important;
   background-color: rgba(235, 236, 235, 0.945);
   overflow: scroll;
   padding-bottom: 10vw;
@@ -36,7 +36,10 @@
 
   .product {
     display: flex;
-    padding: 2vw 5vw;
+    height: 18vw;
+    padding: 2vw 3vw 1vw 3vw;
+    border: 0.3vw solid grey;
+    margin: 1vw 3vw 1vw 3vw;
     .image-container {
       display: inline-block;
       width: 25vw;
@@ -52,16 +55,25 @@
       vertical-align: middle;
       margin-top: auto;
       margin-bottom: auto;
+      margin-left: 1.5vw;
       .text-line {
         display: inline-block;
         width: 60vw;
         margin: 0;
       }
     }
+
+    #delete-product-icon {
+      font-size: 7.5vw;
+      float: right;
+      position: relative;
+      bottom: 0.8vw;
+    }
   }
 
   .button-container {
     width: 100%;
     text-align: center;
+    align-content: space-between;
   }
 }

@@ -1,6 +1,6 @@
 <button id="cta-button" (click)="buttonClick()">
   <div class="icon-container">
-    <ion-icon *ngIf="!icon" name="arrow-forward-outline" class="icon"></ion-icon>
+    <ion-icon *ngIf="ionIcon" [name]="ionIcon" [color]="white" class="icon"></ion-icon>
     <img *ngIf="icon" class="icon" src="{{icon}}">
   </div>
   <div class="text">{{label}}</div>

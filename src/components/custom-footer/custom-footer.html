@@ -22,7 +22,7 @@
         <img src="{{logoIcon}}" class="icon">
       </ion-col> -->
 
-      <ion-col *ngFor="let col of columnArray;" (click)="openLink(col.link)">
+      <ion-col *ngFor="let col of columnArray;" tappable (click)="openLink(col.link)">
         <img src="{{col.icon}}" class="icon">
       </ion-col>
     </ion-row>

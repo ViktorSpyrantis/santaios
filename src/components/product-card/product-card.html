@@ -2,8 +2,8 @@
   <p class="day">{{dayIndexMap.get(dayIndex)}}</p>
   <div class="card-container" (click)="openProduct()">
     <div class="text-area">
-      <p class="weight"><i>{{weightText}}</i></p>
-      <p class="price">{{product.price}}</p>
+      <p class="weight"><i>{{priceBasedOnWeight ? weightText : pieceText}}</i></p>
+      <p class="price">{{shownPrice}}</p>
     </div>
   
     <div class="image-container">

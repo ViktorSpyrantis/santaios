@@ -4,7 +4,7 @@
 
   <!-- CASE WHERE THERE IS AT LEAST ONE PRODUCT IN CART -->
   <div *ngIf="productsInCart.length > 0">
-    <div class="product" *ngFor="let product of productsInCart">
+    <div class="product" *ngFor="let product of productsInCart; let i = index">
       <div class="image-container">
         <img class="image right-margin" src="{{product.image}}">
       </div>
@@ -12,18 +12,25 @@
       <div class="all-text">
         <p class="text-line">
           <span class="light-black right-margin">{{product.name}}</span>
-          <span class="bold-black">{{product.weight}}</span>
-          <span class="bold-black"> kg</span>
+          <span class="bold-black">{{product.weight ? product.weight : product.quantity}}</span>
+          <span class="bold-black"> {{product.weight ? 'kg' : 'τεμάχια'}}</span>
         </p>
         <p class="text-line">
-          <span class="light-black right-margin">Τιμή κιλού: </span>
+          <span class="light-black right-margin">{{product.weight ? weightPriceText : piecePriceText}}</span>
           <span class="bold-black">{{product.price}}</span>
         </p>
       </div>
+      <ion-icon id="delete-product-icon" name="close-circle-outline" [color]="grey" (click)="removeProduct(i)"></ion-icon>
     </div>
 
     <div class="button-container">
-      <cta-button [label]="confirmButtonLabel" [disabled]="false" (onClick)="openOrderModal()">
+      <cta-button [label]="clearCartButtonLabel" [disabled]="false" [ionIcon]="'trash-outline'" (onClick)="clearCartContent()">
+      </cta-button>
+
+      <!-- just some width between the buttons -->
+      <div style="width: 7vw; display: inline-block"></div>
+
+      <cta-button [label]="confirmButtonLabel" [ionIcon]="'arrow-forward-outline'" [disabled]="false" (onClick)="openOrderModal()">
       </cta-button>
     </div>
   </div>
@@ -33,7 +40,7 @@
     <p class="regular-text">{{emptyCartText}}</p>
 
     <div class="button-container">
-      <cta-button [label]="exitButtonLabel" [disabled]="false" (onClick)="dismiss()">
+      <cta-button [label]="exitButtonLabel" [ionIcon]="'exit-outline'"[disabled]="false" (onClick)="dismiss()">
       </cta-button>
     </div>
   </div>

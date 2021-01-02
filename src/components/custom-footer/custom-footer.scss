@@ -1,12 +1,25 @@
+// FIXME : Fix issues for tablet
+
 #custom-footer {
+  display: flex;
+  text-align: center;
   height: 17vw;
   background-color: rgb(18, 99, 54);
   .footer-grid {
+    margin: auto;
     ion-row {
+      // height: 16vw;
       ion-col {
+        display: flex;
+        // height: 15vw;
         text-align: center;
-        margin-top: auto;
-        margin-bottom: auto;
+
+        .icon {
+          // margin-top: auto;
+          // margin-bottom: auto;
+          margin: auto;
+          // width: 7vw;
+        }
       }
     }
   }

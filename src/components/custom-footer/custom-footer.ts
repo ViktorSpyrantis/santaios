@@ -17,13 +17,7 @@ export class CustomFooter {
   expandIcon = "assets/icon/"
   logoIcon = "assets/icon/logo_small.svg"
 
-  // FIXME : Remove the comments later
   columnArray = [
-    // {
-    //   id: "like",
-    //   link: "",
-    //   icon: "assets/icon/heart_white.svg"
-    // },
     {
       id: "back",
       link: "BACK",
@@ -39,11 +33,6 @@ export class CustomFooter {
       link: "CART",
       icon: "assets/icon/shopping_cart.svg"
     },
-    // {
-    //   id: "expand",
-    //   link: "",
-    //   icon: "TODO"
-    // },
     {
       id: "logo",
       link: "dashboard",
@@ -57,15 +46,14 @@ export class CustomFooter {
     private modalCtrl: ModalController
   ) {}
 
-  // FIXME : fix things here 
   openLink(link: string) {
-    // try {
-      console.log(this.modalCtrl);
-      this.modalCtrl.dismiss({'dismissed': true});
-    // } catch(err){}
+    console.log(this.modalCtrl.getTop())
+    this.modalCtrl.dismiss({'dismissed': true});
 
-    if(link == 'BACK') this.location.back();
-    else if (link == 'CART') this.openCart();
+    if (link == 'BACK' && this.location.path() != '/dashboard') {
+      console.log(this.location.path());
+      this.location.back();
+    } else if (link == 'CART') this.openCart();
     else this.router.navigate(['/' + link]);
   }
 

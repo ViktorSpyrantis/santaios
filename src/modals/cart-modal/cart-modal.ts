@@ -12,8 +12,12 @@ export class CartModal {
   @Input() product: any;
 
   title: string = "ΚΑΛΑΘΙ";
+  weightPriceText: string = "Τιμή κιλού: ";
+  piecePriceText: string = "Τιμή τεμαχίου: ";
   confirmButtonLabel: string = "Αγορά";
   exitButtonLabel: string = "Έξοδος";
+  clearCartButtonLabel: string = "Άδειασμα καλ.";
+  clearIcon: string = "trash-outline";
   emptyCartText: string = "Το καλαθι σας είναι άδειο";
   productsInCart = [];
 
@@ -31,6 +35,16 @@ export class CartModal {
       cssClass: 'todo'
     });
     return await modal.present();
+  }
+
+  clearCartContent() {
+    this.cartHandler.deleteProducts();
+    this.productsInCart = this.cartHandler.getProductsInCart();
+  }
+
+  removeProduct(index: number) {
+    this.cartHandler.removeProduct(index);
+    this.productsInCart = this.cartHandler.getProductsInCart();
   }
 
   dismiss() {
