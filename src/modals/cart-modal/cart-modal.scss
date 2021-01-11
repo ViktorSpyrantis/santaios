@@ -71,6 +71,24 @@
     }
   }
 
+  .total {
+    width: 100%;
+    text-align: center;
+    .total-text {
+      display: inline-block;
+      font-size: 5.2vw;
+      font-weight: 500;
+      color: rgb(12, 12, 12);
+    }
+    
+    .total-price {
+      display: inline-block;
+      font-size: 5.2vw;
+      font-weight: 800;
+      color: rgb(12, 12, 12);
+    }
+  }
+
   .button-container {
     width: 100%;
     text-align: center;

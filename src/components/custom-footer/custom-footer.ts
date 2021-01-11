@@ -34,6 +34,7 @@ export class CustomFooter {
       icon: "assets/icon/shopping_cart.svg"
     },
     {
+      // FIXME : make logo bigger
       id: "logo",
       link: "dashboard",
       icon: "assets/icon/logo_small.svg"

@@ -14,18 +14,7 @@
     </category-button>
   </div> -->
 
-
-<!-- [name]="prod.name" [image]="prod.image" [price]="prod.price"  -->
   
-
-  <div class="card-container" *ngIf="loadingComplete && suggestedProducts">
-    <p class="cards-title">{{suggestedProductsTitle}}</p>
-    <div class="horizontal-scroll">
-      <product-card *ngFor="let prod of suggestedProducts" [small]="false" [product]="prod.product">
-      </product-card>
-    </div>
-  </div>
-
   <div class="card-container" *ngIf="loadingComplete && weeklyOffers" >
     <p class="cards-title">{{weeklyOffersTitle}}</p>
     <div class="horizontal-scroll">
@@ -34,4 +23,11 @@
     </div>
   </div>
 
+  <div class="card-container" *ngIf="loadingComplete && suggestedProducts">
+    <p class="cards-title">{{suggestedProductsTitle}}</p>
+    <div class="horizontal-scroll">
+      <product-card *ngFor="let prod of suggestedProducts" [small]="false" [product]="prod.product">
+      </product-card>
+    </div>
+  </div>
 </div>

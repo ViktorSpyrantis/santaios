@@ -110,14 +110,17 @@
         .amount {
           display: inline-block;
           margin: 0 auto 0 auto;
-          width: 15vw;
-          font-size: 8vw;
+          width: 35vw;
+          font-size: 6.5vw;
           font-weight: 800;
           color: rgb(26, 87, 7);
-          // padding: 2vw;
-          // background-color: white;
-          // border-radius: 2vw;
         }
+      }
+      .kilos-text {
+        margin: 0 auto 0 auto;
+        font-size: 4.7vw;
+        font-weight: 500;
+        color: rgb(26, 87, 7);
       }
       .price {
         margin: 4vw 0 0 0;

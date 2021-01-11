@@ -30,7 +30,7 @@ export class ProductCategories {
     {
       id: ProductSheet.LAMB,
       greek: 'ΑΜΝΟΕΡΙΦΙΑ',
-      page_title: 'Κατσικίσια κρέατα',
+      page_title: 'Αμνοερίφια',
       icon: 'sheep.svg',
       icon_by_height: true
     },

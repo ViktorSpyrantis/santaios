@@ -24,9 +24,15 @@
 
     <div class="purchase-area">
       <div class="amount-selector">
-        <p class="sign" (click)="priceBasedOnWeight ? (30 > kilos ? kilos = kilos + 0.5 : null) : (40 > pieces ? pieces = pieces + 1 : null)">+</p>
+
+        <!-- Disabled for now, will be used if we decide to use based per piece price -->
+        <!-- <p class="sign" (click)="priceBasedOnWeight ? (kilos > 0 ? kilos = kilos - 0.5 : null) : (pieces > 0 ? pieces = pieces - 1 : null)">-</p>
         <p class="amount">{{priceBasedOnWeight ? kilos : pieces}}</p>
-        <p class="sign" (click)="priceBasedOnWeight ? (kilos > 0 ? kilos = kilos - 0.5 : null) : (pieces > 0 ? pieces = pieces - 1 : null)">-</p>
+        <p class="sign" (click)="priceBasedOnWeight ? (30 > kilos ? kilos = kilos + 0.5 : null) : (40 > pieces ? pieces = pieces + 1 : null)">+</p> -->
+
+        <p class="sign" (click)="kilos > 0.5 ? kilos = kilos - 0.5 : null">-</p>
+        <p class="amount">{{('' + kilos).replace('.', ',')}}<span> {{kilos == 1 || kilos == 1.5 ? 'κιλό' : 'κιλά'}}</span></p>
+        <p class="sign" (click)="30 > kilos ? kilos = kilos + 0.5 : null">+</p>
       </div>
       <p class="price" >{{(calculatePrice() | number : '1.2-2').replace('.', ',')}} €</p>
 
