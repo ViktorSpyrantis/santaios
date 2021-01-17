@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CartHandler } from 'src/providers/cart-handler';
+import { ModalHandler } from 'src/providers/modal-handler';
 import { OrderModal } from '../order-modal/order-modal';
 
 @Component({
@@ -25,19 +26,16 @@ export class CartModal {
 
   constructor(
     private modalCtrl: ModalController,
-    private cartHandler: CartHandler
+    private cartHandler: CartHandler,
+    private modalHandler: ModalHandler
   ) {
     this.productsInCart = cartHandler.getProductsInCart();
     this.totalPrice = cartHandler.getTotalPrice();
   }
 
-  async openOrderModal() {
+  openOrderModal() {
     this.dismiss();
-    const modal = await this.modalCtrl.create({
-      component: OrderModal,
-      cssClass: 'todo'
-    });
-    return await modal.present();
+    this.modalHandler.openOrderModal();
   }
 
   clearCartContent() {
@@ -52,9 +50,7 @@ export class CartModal {
   }
 
   dismiss() {
-    this.modalCtrl.dismiss({
-      'dismissed': true
-    });
+    this.modalHandler.closeCartModal();
   }
 
 }

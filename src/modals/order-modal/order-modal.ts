@@ -2,8 +2,10 @@
 import { Component, Input } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { CartHandler } from 'src/providers/cart-handler';
+import { ModalHandler } from 'src/providers/modal-handler';
 import { OrderByEmailHandler } from 'src/providers/order-by-email-handler';
 import { UNITS } from 'src/providers/regional-units';
+import { AREAS } from 'src/providers/areas';
 
 @Component({
   selector: 'order-modal',
@@ -13,26 +15,28 @@ import { UNITS } from 'src/providers/regional-units';
 export class OrderModal {
 
   title: string = "ΠΡΟΣΩΠΙΚΑ ΣΤΟΙΧΕΙΑ";
-  buttonLabel: string = "Επιβεβαίωση";
+  backButtonLabel: string = "Πίσω";
+  orderButtonLabel: string = "Επιβεβαίωση";
   regionalUnits = [];
+  areas = [];
   
   forms = {
-    name: "Όνομα",
-    surname: "Επώνυμο",
-    phone: "Τηλέφωνο επικοινωνίας",
-    city: "Πόλη",
-    regUnit: "Νομός",
+    name: "Όνομα <font color='red'>*</font>",
+    surname: "Επώνυμο <font color='red'>*</font>",
+    phone: "Τηλέφωνο επικοινωνίας <font color='red'>*</font>",
+    regUnit: "Νομός <font color='red'>*</font>",
+    area: "Περιοχή <font color='red'>*</font>",
     zip: "Τ.Κ",
     street: "Οδός",
     number: "Αριθμός",
-    email: "e-mail" 
+    email: "e-mail <font color='red'>*</font>",
   }
 
   customerInfo: {
     name: string,
     surname: string,
     phone: string,
-    city: string,
+    area: string,
     regUnit: string,
     zip: string,
     street: string,
@@ -42,7 +46,7 @@ export class OrderModal {
     name: null,
     surname: null,
     phone: null,
-    city: null,
+    area: null,
     regUnit: null,
     zip: null,
     street: null,
@@ -54,16 +58,10 @@ export class OrderModal {
     private modalCtrl: ModalController,
     private emailOrder: OrderByEmailHandler,
     private alertController: AlertController,
-    private cart: CartHandler
+    private cart: CartHandler,
+    private modalHandler: ModalHandler
   ) {
     this.regionalUnits = UNITS;
-  }
-
-  // FIXME : handle all functionality on a page rather than on modal maybe
-  proceedWithOrder() {
-    this.emailOrder.sendOrderEmail(this.customerInfo, this.configProductsString());
-    this.dismiss();
-    this.cart.deleteProducts();
   }
 
   private configProductsString(): string {
@@ -103,10 +101,56 @@ export class OrderModal {
     await alert.present();
   }
 
-  dismiss() {
-    this.modalCtrl.dismiss({
-      'dismissed': true
+  // Show alert popup for order confirmation
+  async presentAlertDataNotValid() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Ελειπή στοιχεία',
+      message: '<strong>Δεν έχετε συμπληρώσει επαρκώς τα στοιχεία σας</strong>',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            // this.proceedWithOrder();
+          }
+        }
+      ]
     });
+
+    await alert.present();
+  }
+
+  goToCart() {
+    this.modalHandler.openCartModal();
+  }
+
+  requiredFieldsNotFilled(): boolean {
+    if (this.customerInfo.name && this.customerInfo.surname && this.customerInfo.phone && this.customerInfo.area && this.customerInfo.regUnit
+      && this.customerInfo.email && this.customerInfo.zip)
+      return false;
+    else {
+      return true;
+    }
+  }
+
+  getAreas() {
+    this.customerInfo.area = null;
+    this.areas = [];
+    AREAS.forEach(area => {
+      console.log(area[0], '   ', area[1])
+      if (area[1] == this.customerInfo.regUnit) this.areas.push(area[0]);
+    })
+  }
+
+  // FIXME : handle all functionality on a page rather than on modal maybe
+  proceedWithOrder() {
+    this.emailOrder.sendOrderEmail(this.customerInfo, this.configProductsString());
+    this.dismiss();
+    this.cart.deleteProducts();
+  }
+
+  dismiss() {
+    this.modalHandler.closeOrderModal();
   }
 
 }

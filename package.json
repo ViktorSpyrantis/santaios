@@ -27,7 +27,7 @@
     "@types/nodemailer": "^6.4.0",
     "@types/nodemailer-direct-transport": "^1.0.31",
     "@types/nodemailer-smtp-transport": "^2.7.4",
-    "cordova-android": "8.1.0",
+    "cordova-android": "^8.1.0",
     "cordova-plugin-email-composer": "^0.9.2",
     "ng-gapi": "0.0.94",
     "nodemailer": "^6.4.17",

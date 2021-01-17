@@ -7,11 +7,11 @@
   height: 12vw;
   display: inline-block;
   font-size: 5vw;
-  color: rgb(18, 99, 54);
+  // color: rgb(18, 99, 54);
   .icon-container {
     width: 8.5vw;
     height: 8.5vw;
-    background-color: rgb(18, 99, 54);
+    // background-color: rgb(18, 99, 54);
     border-radius: 50%;
     float: left;
     align-items: center;
@@ -29,4 +29,8 @@
   .text:active {
     margin-top: 3vw;
   }
+}
+
+#cta-button:focus {
+  outline: none;
 }

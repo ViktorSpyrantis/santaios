@@ -21,7 +21,7 @@ export class OrderByEmailHandler {
       name: string,
       surname: string,
       phone: string,
-      city: string,
+      area: string,
       regUnit: string,
       zip: string,
       street: string,
@@ -34,7 +34,7 @@ export class OrderByEmailHandler {
     this.http.post(this.api,
       { 
         FULL_NAME: customerInfo.name + ' ' + customerInfo.surname, 
-        ADDRESS: customerInfo.street + ' ' + customerInfo.number + ', ' + customerInfo.city + ' (' + customerInfo.regUnit + '), ' + customerInfo.zip,
+        ADDRESS: customerInfo.street + ' ' + customerInfo.number + ', ' + customerInfo.area + ' (' + customerInfo.regUnit + '), ' + customerInfo.zip,
         PHONE: customerInfo.phone,
         EMAIL: customerInfo.email,
         PURCHASE: products

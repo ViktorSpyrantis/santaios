@@ -27,6 +27,7 @@ import { OrderModal } from 'src/modals/order-modal/order-modal';
 import { CtaButton } from 'src/components/cta-button/cta-button';
 import { OrderByEmailHandler } from 'src/providers/order-by-email-handler';
 import { FormsModule } from '@angular/forms';
+import { ModalHandler } from 'src/providers/modal-handler';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { FormsModule } from '@angular/forms';
     ProductCategories,
     CartHandler,
     OrderByEmailHandler,
-    EmailComposer
+    EmailComposer,
+    ModalHandler
   ],
   bootstrap: [AppComponent]
 })

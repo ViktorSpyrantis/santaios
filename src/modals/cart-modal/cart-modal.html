@@ -1,5 +1,10 @@
 <div id="cart-modal">
 
+  <!-- CLOSE ICON -->
+  <div id="close-modal-icon-container">
+    <ion-icon id="close-modal-icon" name="close-circle-outline" [color]="grey" (click)="dismiss()"></ion-icon>
+  </div>
+
   <h2 class="title">{{title}}</h2>
 
   <!-- CASE WHERE THERE IS AT LEAST ONE PRODUCT IN CART -->
@@ -20,7 +25,7 @@
           <span class="bold-black">{{product.price}}</span>
         </p>
       </div>
-      <ion-icon id="delete-product-icon" name="close-circle-outline" [color]="grey" (click)="removeProduct(i)"></ion-icon>
+      <ion-icon id="delete-product-icon" name="close-outline" [color]="grey" (click)="removeProduct(i)"></ion-icon>
     </div>
 
     <div class="total">

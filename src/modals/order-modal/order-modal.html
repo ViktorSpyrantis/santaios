@@ -1,59 +1,73 @@
 <div id="order-modal">
 
+  <!-- CLOSE ICON -->
+  <div id="close-modal-icon-container">
+    <ion-icon id="close-modal-icon" name="close-circle-outline" color="black" (click)="dismiss()"></ion-icon>
+  </div>
+
   <h2 class="title">{{title}}</h2>
 
   <div class="form-container">
     <ion-item color="rgba(235, 236, 235, 0.945)" class="name input-wrapper">
-      <ion-label class="label" position="floating">{{forms.name}}</ion-label>
+      <ion-label class="label" position="floating" [innerHTML]="forms.name"></ion-label>
       <ion-input required="true" autocapitalize="on" [(ngModel)]="customerInfo.name" class="input"></ion-input>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="surname input-wrapper">
-      <ion-label class="label" position="floating">{{forms.surname}}</ion-label>
+      <ion-label class="label" position="floating" [innerHTML]="forms.surname"></ion-label>
       <ion-input class="input" [(ngModel)]="customerInfo.surname"></ion-input>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="phone input-wrapper">
-      <ion-label class="label" position="floating">{{forms.phone}}</ion-label>
+      <ion-label class="label" position="floating" [innerHTML]="forms.phone"></ion-label>
       <ion-input type="number" inputmode="tel" class="input" [(ngModel)]="customerInfo.phone"
         minlength="10" maxlength="10"></ion-input>
     </ion-item>
 
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="city input-wrapper">
-      <ion-label class="label" position="floating">{{forms.city}}</ion-label>
-      <ion-input autocapitalize class="input" [(ngModel)]="customerInfo.city"></ion-input>
-    </ion-item>
-
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="reg-unit input-wrapper">
-      <ion-label class="label" position="floating">{{forms.regUnit}}</ion-label>
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="reg-unit input-wrapper" (ionChange)="getAreas()">
+      <ion-label class="label" position="floating" [innerHTML]="forms.regUnit"></ion-label>
       <ion-select class="input" [(ngModel)]="customerInfo.regUnit">
         <ion-select-option *ngFor="let unit of regionalUnits" [value]="unit">{{unit}}</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="zip input-wrapper">
-      <ion-label class="label" position="floating">{{forms.zip}}</ion-label>
+      <ion-label class="label" position="floating" [innerHTML]="forms.zip"></ion-label>
       <ion-input class="input" type="number" inputmode="numeric" [(ngModel)]="customerInfo.zip"></ion-input>
     </ion-item>
 
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="city input-wrapper" *ngIf="customerInfo.regUnit">
+      <ion-label class="label" position="floating" [innerHTML]="forms.area"></ion-label>
+      <!-- <ion-input autocapitalize class="input" [(ngModel)]="customerInfo.city"></ion-input> -->
+      <ion-select class="input" [(ngModel)]="customerInfo.area">
+        <ion-select-option *ngFor="let area of areas" [value]="area">{{area}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
     <ion-item color="rgba(235, 236, 235, 0.945)" class="street input-wrapper">
-      <ion-label class="label" position="floating">{{forms.street}}</ion-label>
+      <ion-label class="label" position="floating" [innerHTML]="forms.street"></ion-label>
       <ion-input class="input" [(ngModel)]="customerInfo.street"></ion-input>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="number input-wrapper">
-      <ion-label class="label" position="floating">{{forms.number}}</ion-label>
+      <ion-label class="label" position="floating" [innerHTML]="forms.number"></ion-label>
       <ion-input class="input" type="number" inputmode="numeric" [(ngModel)]="customerInfo.number"></ion-input>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="email input-wrapper">
-      <ion-label class="label" position="floating">{{forms.email}}</ion-label>
+      <ion-label class="label" position="floating" [innerHTML]="forms.email"></ion-label>
       <ion-input inputmode="email" type="email" inputmode="email" class="input" [(ngModel)]="customerInfo.email"></ion-input>
     </ion-item>
   </div>
 
   <div class="button-container">
-    <cta-button [label]="buttonLabel" [ionIcon]="'arrow-forward-outline'" [disabled]="false" (onClick)="presentAlertConfirm()">
+    <cta-button [label]="backButtonLabel" [ionIcon]="'arrow-back-outline'" (onClick)="goToCart()">
+    </cta-button>
+
+    <!-- just some width between the buttons -->
+    <div style="width: 7vw; display: inline-block"></div>
+
+    <cta-button [label]="orderButtonLabel" [ionIcon]="'arrow-forward-outline'" [disabled]="requiredFieldsNotFilled()" (onClick)="presentAlertConfirm()">
     </cta-button>
   </div>
 </div>

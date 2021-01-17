@@ -61,13 +61,6 @@ export class ProductPage {
     this.product.weight = this.kilos;
     this.cartHandler.addProductToCart(this.product)
     this.router.navigate(['/dashboard']);
-
-    // FIXME : see if below code will be used
-    // const modal = await this.modalCtrl.create({
-    //   component: CartModal,
-    //   cssClass: 'todo'
-    // });
-    // return await modal.present();
   }
 
 }
