@@ -1,7 +1,7 @@
 #product-page {
   .content {
     background-color: rgba(235, 236, 235, 0.945);
-    height: 100%;
+    // height: 100%;
     scroll-behavior: smooth;
     .bg-img-container {
       width: 100%;
@@ -14,17 +14,20 @@
         top: 0;
         width: 100%;
         text-align: center;
-        .product-title {
-          font-size: 6.2vw;
-          font-weight: 500;
-          color: rgb(151, 146, 146);
-          margin-top: 5vw;
-          margin-bottom: 5vw;
-        }
         .product-img {
-          height: 28vw;
+          width: 40vw;
+          // border-radius: 0 0 40vw 40vw;
         }
       }
+    }
+
+    .product-title {
+      text-align: center;
+      font-size: 6.2vw;
+      font-weight: 500;
+      color: rgb(151, 146, 146);
+      // margin-top: 5vw;
+      // margin-bottom: 5vw;
     }
 
     // .product-img-container {
@@ -95,7 +98,7 @@
       width: 100%;
       text-align: center;
       margin-top: 7vw;
-      margin-bottom: 7vw;
+      padding-bottom: 7vw;
       .sign {
         margin: 0 5vw 0 5vw;
         width: 12vw;

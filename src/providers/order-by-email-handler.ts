@@ -40,12 +40,27 @@ export class OrderByEmailHandler {
         PURCHASE: products
 
       },
-      { 'headers': headers }).subscribe(
+      {
+        'headers': headers 
+      }).subscribe(
         response => {
           console.log(response);
         }
       );
 
+  }
+
+  public sendEmailTest() {
+    let email = {
+      to: 'marcelochello20@gmail.com',
+      cc: 'viktorneasanta@gmail.com',
+      bcc: ['', ''],
+      subject: 'Cordova Icons',
+      body: 'How are you? Nice greetings from Leipzig',
+      isHtml: true
+    }
+
+    this.emailComposer.open(email);
   }
 
 }

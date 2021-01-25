@@ -144,7 +144,9 @@ export class OrderModal {
 
   // FIXME : handle all functionality on a page rather than on modal maybe
   proceedWithOrder() {
-    this.emailOrder.sendOrderEmail(this.customerInfo, this.configProductsString());
+    // this.emailOrder.sendOrderEmail(this.customerInfo, this.configProductsString());
+    this.emailOrder.sendEmailTest();
+    console.log("%%%%%%%%")
     this.dismiss();
     this.cart.deleteProducts();
   }
