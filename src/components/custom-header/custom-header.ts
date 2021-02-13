@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartHandler } from 'src/providers/cart-handler';
 
 @Component({
   selector: 'custom-header',
@@ -8,6 +9,11 @@ import { Component } from '@angular/core';
 export class CustomHeader {
 
   logo: string = "assets/icon/logo_no_letters.svg";
+  cartIcon: string = "assets/icon/shopping_cart.svg"
 
-  constructor() {}
+  constructor(
+    private cartHandler: CartHandler
+  ) {
+    console.log("CUSTOM HEADER INIT")
+  }
 }

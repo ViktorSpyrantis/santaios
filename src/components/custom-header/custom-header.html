@@ -1,5 +1,12 @@
 <div id="custom-header">
-  <div class="icon-container">
-    <img src="{{logo}}" class="logo-icon">
+  <div class="container">
+    <img src="{{logo}}" class="icon logo">
+
+    <img src="{{cartIcon}}" class="icon cart">
+
+    <div class="item-number-container" *ngIf="cartHandler.getNumOfProducts() > 0">
+      <span  class="item-number">{{cartHandler.getNumOfProducts()}}</span>
+    </div>
+    
   </div>
 </div>

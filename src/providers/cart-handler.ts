@@ -27,6 +27,11 @@ export class CartHandler {
     return this.productList;
   }
 
+  public getNumOfProducts() {
+    console.log("PRODUCTS IN CART: ", this.productList.length)
+    return this.productList.length;
+  }
+
   public getTotalPrice() {
     return this.totalPrice;
   }

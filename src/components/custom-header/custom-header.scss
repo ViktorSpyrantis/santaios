@@ -1,16 +1,45 @@
 #custom-header {
   height: 17vw;
   background-color: rgb(18, 99, 54);
-  .icon-container {
+
+  .container {
+    position: relative;
     height: inherit;
-    width: fit-content;
+    width: 100%;
     display: inline-flex;
-    .logo-icon {
-      width: 13vw;
+
+    .icon {
       vertical-align: middle;
       margin-top: auto;
       margin-bottom: auto;
+    }
+
+    .logo {
+      width: 13vw;
       margin-left: 5vw;
     }
+
+    .cart {
+      width: 9vw;
+      margin-right: 5vw;
+      margin-left: auto;
+      text-align: end;
+    }
+
+    .item-number-container {
+      position: absolute;
+      right: 2.5vw;
+      top: 2.5vw;
+      text-align: center;
+      width: 4vw;
+      height: 4vw;
+      background-color: black;
+      .item-number {
+        color: rgb(18, 99, 54);
+        font-size: 3.5vw;
+        vertical-align: middle;
+      }
+    }
+
   }
 }
