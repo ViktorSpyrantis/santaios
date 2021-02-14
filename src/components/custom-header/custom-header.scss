@@ -28,16 +28,17 @@
 
     .item-number-container {
       position: absolute;
+      display: inline-flex;
       right: 2.5vw;
       top: 2.5vw;
-      text-align: center;
-      width: 4vw;
-      height: 4vw;
+      width: 4.5vw;
+      height: 4.5vw;
       background-color: black;
       .item-number {
         color: rgb(18, 99, 54);
-        font-size: 3.5vw;
+        font-size: 3vw;
         vertical-align: middle;
+        margin: auto;
       }
     }
 

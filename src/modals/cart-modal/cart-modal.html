@@ -9,7 +9,7 @@
 
   <!-- CASE WHERE THERE IS AT LEAST ONE PRODUCT IN CART -->
   <div *ngIf="productsInCart.length > 0">
-    <div class="product" *ngFor="let product of productsInCart; let i = index">
+    <div class="product" *ngFor="let product of productsInCart; let i = index" (click)="openProductPage(product)">
       <div class="image-container">
         <img class="image right-margin" src="{{product.image}}">
       </div>

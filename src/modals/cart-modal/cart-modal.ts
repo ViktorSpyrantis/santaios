@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { CartHandler } from 'src/providers/cart-handler';
 import { ModalHandler } from 'src/providers/modal-handler';
@@ -27,7 +28,8 @@ export class CartModal {
   constructor(
     private modalCtrl: ModalController,
     private cartHandler: CartHandler,
-    private modalHandler: ModalHandler
+    private modalHandler: ModalHandler,
+    private router: Router
   ) {
     this.productsInCart = cartHandler.getProductsInCart();
     this.totalPrice = cartHandler.getTotalPrice();
@@ -36,6 +38,17 @@ export class CartModal {
   openOrderModal() {
     this.dismiss();
     this.modalHandler.openOrderModal();
+  }
+
+  openProductPage(product) {
+    this.dismiss();
+    console.log(product)
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        product: JSON.stringify(product)
+      }
+    };
+    this.router.navigate(['/product'], navigationExtras)
   }
 
   clearCartContent() {

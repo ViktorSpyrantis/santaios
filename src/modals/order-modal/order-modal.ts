@@ -19,6 +19,7 @@ export class OrderModal {
   orderButtonLabel: string = "Επιβεβαίωση";
   regionalUnits = [];
   areas = [];
+  areaNeedsStreetAndNumberInfo: boolean = false;
   
   forms = {
     name: "Όνομα <font color='red'>*</font>",
@@ -27,9 +28,9 @@ export class OrderModal {
     regUnit: "Νομός <font color='red'>*</font>",
     area: "Περιοχή <font color='red'>*</font>",
     zip: "Τ.Κ",
-    street: "Οδός",
-    number: "Αριθμός",
-    email: "e-mail <font color='red'>*</font>",
+    street: "Οδός <font color='red'>*</font>",
+    number: "Αριθμός <font color='red'>*</font>",
+    email: "E-mail <font color='red'>*</font>",
   }
 
   customerInfo: {
@@ -135,10 +136,19 @@ export class OrderModal {
 
   getAreas() {
     this.customerInfo.area = null;
+    this.areaNeedsStreetAndNumberInfo = false;
     this.areas = [];
     AREAS.forEach(area => {
-      console.log(area[0], '   ', area[1])
       if (area[1] == this.customerInfo.regUnit) this.areas.push(area[0]);
+    })
+  }
+
+  areaChanged() {
+    AREAS.forEach(area => {
+      if (area[0] == this.customerInfo.area) {
+        if(area[2]) this.areaNeedsStreetAndNumberInfo = true;
+        else this.areaNeedsStreetAndNumberInfo = false;
+      }
     })
   }
 
@@ -146,7 +156,6 @@ export class OrderModal {
   proceedWithOrder() {
     // this.emailOrder.sendOrderEmail(this.customerInfo, this.configProductsString());
     this.emailOrder.sendEmailTest();
-    console.log("%%%%%%%%")
     this.dismiss();
     this.cart.deleteProducts();
   }

@@ -36,7 +36,8 @@
       <ion-input class="input" type="number" inputmode="numeric" [(ngModel)]="customerInfo.zip"></ion-input>
     </ion-item>
 
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="city input-wrapper" *ngIf="customerInfo.regUnit">
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="city input-wrapper" *ngIf="customerInfo.regUnit"
+      (ionChange)="areaChanged()">
       <ion-label class="label" position="floating" [innerHTML]="forms.area"></ion-label>
       <!-- <ion-input autocapitalize class="input" [(ngModel)]="customerInfo.city"></ion-input> -->
       <ion-select class="input" [(ngModel)]="customerInfo.area">
@@ -44,12 +45,12 @@
       </ion-select>
     </ion-item>
 
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="street input-wrapper">
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="street input-wrapper" *ngIf="areaNeedsStreetAndNumberInfo">
       <ion-label class="label" position="floating" [innerHTML]="forms.street"></ion-label>
       <ion-input class="input" [(ngModel)]="customerInfo.street"></ion-input>
     </ion-item>
 
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="number input-wrapper">
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="number input-wrapper" *ngIf="areaNeedsStreetAndNumberInfo">
       <ion-label class="label" position="floating" [innerHTML]="forms.number"></ion-label>
       <ion-input class="input" type="number" inputmode="numeric" [(ngModel)]="customerInfo.number"></ion-input>
     </ion-item>

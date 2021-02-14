@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CartHandler } from 'src/providers/cart-handler';
+import { ModalHandler } from 'src/providers/modal-handler';
 
 @Component({
   selector: 'custom-header',
@@ -12,8 +13,11 @@ export class CustomHeader {
   cartIcon: string = "assets/icon/shopping_cart.svg"
 
   constructor(
-    private cartHandler: CartHandler
-  ) {
-    console.log("CUSTOM HEADER INIT")
+    private cartHandler: CartHandler,
+    private modalHandler: ModalHandler
+  ) { }
+
+  openCart() {
+    this.modalHandler.openCartModal();
   }
 }
