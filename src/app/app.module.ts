@@ -28,6 +28,10 @@ import { CtaButton } from 'src/components/cta-button/cta-button';
 import { OrderByEmailHandler } from 'src/providers/order-by-email-handler';
 import { FormsModule } from '@angular/forms';
 import { ModalHandler } from 'src/providers/modal-handler';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -58,7 +62,9 @@ import { ModalHandler } from 'src/providers/modal-handler';
     AppRoutingModule,
     // HttpHandler,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [
     StatusBar,
@@ -70,7 +76,8 @@ import { ModalHandler } from 'src/providers/modal-handler';
     CartHandler,
     OrderByEmailHandler,
     EmailComposer,
-    ModalHandler
+    ModalHandler,
+    AngularFirestore
   ],
   bootstrap: [AppComponent]
 })
