@@ -35,7 +35,8 @@
 
         <!-- Used if we use price per piece too -->
         <p class="sign" (click)="priceBasedOnWeight ? (kilos > 0 ? kilos = kilos - 0.5 : null) : (pieces > 0 ? pieces = pieces - 1 : null)">-</p>
-        <p class="amount">{{priceBasedOnWeight ? kilos : pieces}}</p>
+        <p class="amount" *ngIf="priceBasedOnWeight">{{('' + kilos).replace('.', ',')}}<span> {{kilos == 1 || kilos == 1.5 ? 'κιλό' : 'κιλά'}}</span></p>
+        <p class="amount" *ngIf="!priceBasedOnWeight">{{pieces == 1 ? 'τεμάχιο' : 'τεμάχιο'}}</p>
         <p class="sign" (click)="priceBasedOnWeight ? (30 > kilos ? kilos = kilos + 0.5 : null) : (40 > pieces ? pieces = pieces + 1 : null)">+</p>
 
         <!-- Use if price is only based on weight -->

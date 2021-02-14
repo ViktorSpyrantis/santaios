@@ -59,6 +59,11 @@
       <ion-label class="label" position="floating" [innerHTML]="forms.email"></ion-label>
       <ion-input inputmode="email" type="email" inputmode="email" class="input" [(ngModel)]="customerInfo.email"></ion-input>
     </ion-item>
+
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="extra-info input-wrapper">
+      <ion-label class="label" position="floating" [innerHTML]="forms.extraInfo"></ion-label>
+      <ion-textarea class="extra-info-input" [(ngModel)]="customerInfo.extraInfo"></ion-textarea>
+    </ion-item>
   </div>
 
   <div class="button-container">

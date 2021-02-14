@@ -31,6 +31,7 @@ export class OrderModal {
     street: "Οδός <font color='red'>*</font>",
     number: "Αριθμός <font color='red'>*</font>",
     email: "E-mail <font color='red'>*</font>",
+    extraInfo: "Πρόσθετες πληροφορίες"
   }
 
   customerInfo: {
@@ -42,7 +43,8 @@ export class OrderModal {
     zip: string,
     street: string,
     number: string,
-    email: string
+    email: string,
+    extraInfo: string
   } = {
     name: null,
     surname: null,
@@ -52,7 +54,8 @@ export class OrderModal {
     zip: null,
     street: null,
     number: null,
-    email: null
+    email: null,
+    extraInfo: null
   }
 
   constructor(
@@ -93,6 +96,7 @@ export class OrderModal {
         }, {
           text: 'Ναι',
           handler: () => {
+            console.log("$$$$$")
             this.proceedWithOrder();
           }
         }
@@ -112,7 +116,7 @@ export class OrderModal {
         {
           text: 'OK',
           handler: () => {
-            // this.proceedWithOrder();
+            this.proceedWithOrder();
           }
         }
       ]
@@ -126,8 +130,9 @@ export class OrderModal {
   }
 
   requiredFieldsNotFilled(): boolean {
-    if (this.customerInfo.name && this.customerInfo.surname && this.customerInfo.phone && this.customerInfo.area && this.customerInfo.regUnit
-      && this.customerInfo.email && this.customerInfo.zip)
+    if (this.customerInfo.name && this.customerInfo.surname && this.customerInfo.phone && 
+      this.customerInfo.area && this.customerInfo.regUnit && this.customerInfo.email 
+      && (this.areaNeedsStreetAndNumberInfo ? this.customerInfo.street && this.customerInfo.number : true))
       return false;
     else {
       return true;
