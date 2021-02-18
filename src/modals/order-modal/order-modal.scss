@@ -37,19 +37,30 @@
 
     .reg-unit {
       display: inline-block;
-      width: 58%;
+      width: 60%;
     }
+
     .zip {
       display: inline-block;
-      width: 32%;
-    }
-    .street {
-      display: inline-block;
-      width: 62%;
+      width: 30%;
     }
     .number {
       display: inline-block;
-      width: 28%;
+      width: 30%;
+    }
+
+    .address {
+      display: inline-block;
+      width: 60%;
+    }
+    .floor {
+      display: inline-block;
+      width: 30%;
+    }
+
+    .street {
+      // display: inline-block;
+      // width: 62%;
     }
   }
 

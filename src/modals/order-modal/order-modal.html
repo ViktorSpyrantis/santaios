@@ -45,7 +45,8 @@
       </ion-select>
     </ion-item>
 
-    <ion-item color="rgba(235, 236, 235, 0.945)" class="street input-wrapper" *ngIf="areaNeedsStreetAndNumberInfo">
+    <!-- Street and number inputs. Single address input is used instead now -->
+    <!-- <ion-item color="rgba(235, 236, 235, 0.945)" class="street input-wrapper" *ngIf="areaNeedsStreetAndNumberInfo">
       <ion-label class="label" position="floating" [innerHTML]="forms.street"></ion-label>
       <ion-input class="input" [(ngModel)]="customerInfo.street"></ion-input>
     </ion-item>
@@ -53,6 +54,18 @@
     <ion-item color="rgba(235, 236, 235, 0.945)" class="number input-wrapper" *ngIf="areaNeedsStreetAndNumberInfo">
       <ion-label class="label" position="floating" [innerHTML]="forms.number"></ion-label>
       <ion-input class="input" type="number" inputmode="numeric" [(ngModel)]="customerInfo.number"></ion-input>
+    </ion-item> -->
+
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="address input-wrapper" *ngIf="areaNeedsAddressInfo">
+      <ion-label class="label" position="floating" [innerHTML]="forms.address"></ion-label>
+      <ion-input class="input" [(ngModel)]="customerInfo.address"></ion-input>
+    </ion-item>
+
+    <ion-item color="rgba(235, 236, 235, 0.945)" class="floor input-wrapper" *ngIf="areaNeedsAddressInfo">
+      <ion-label class="label" position="floating" [innerHTML]="forms.floor"></ion-label>
+      <ion-select class="input" [(ngModel)]="customerInfo.floor">
+        <ion-select-option *ngFor="let floor of floors" [value]="floor">{{floor}}</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <ion-item color="rgba(235, 236, 235, 0.945)" class="email input-wrapper">

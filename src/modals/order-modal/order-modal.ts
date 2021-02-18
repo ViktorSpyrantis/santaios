@@ -19,7 +19,9 @@ export class OrderModal {
   orderButtonLabel: string = "Επιβεβαίωση";
   regionalUnits = [];
   areas = [];
-  areaNeedsStreetAndNumberInfo: boolean = false;
+  areaNeedsAddressInfo: boolean = false;
+  // areaNeedsStreetAndNumberInfo: boolean = false;
+  floors = ['Ισόγειο', '1', '2' ,'3' ,'4', '5', '6'];
   
   forms = {
     name: "Όνομα <font color='red'>*</font>",
@@ -28,8 +30,10 @@ export class OrderModal {
     regUnit: "Νομός <font color='red'>*</font>",
     area: "Περιοχή <font color='red'>*</font>",
     zip: "Τ.Κ",
-    street: "Οδός <font color='red'>*</font>",
-    number: "Αριθμός <font color='red'>*</font>",
+    // street: "Οδός <font color='red'>*</font>",
+    // number: "Αριθμός <font color='red'>*</font>",
+    address: "Διεύθυνση <font color='red'>*</font>",
+    floor: "Όροφος",
     email: "E-mail <font color='red'>*</font>",
     extraInfo: "Πρόσθετες πληροφορίες"
   }
@@ -41,8 +45,10 @@ export class OrderModal {
     area: string,
     regUnit: string,
     zip: string,
-    street: string,
-    number: string,
+    // street: string,
+    // number: number,
+    address: string,
+    floor: string,
     email: string,
     extraInfo: string
   } = {
@@ -52,8 +58,10 @@ export class OrderModal {
     area: null,
     regUnit: null,
     zip: null,
-    street: null,
-    number: null,
+    // street: null,
+    // number: null,
+    address: null,
+    floor: "Ισόγειο",
     email: null,
     extraInfo: null
   }
@@ -132,7 +140,7 @@ export class OrderModal {
   requiredFieldsNotFilled(): boolean {
     if (this.customerInfo.name && this.customerInfo.surname && this.customerInfo.phone && 
       this.customerInfo.area && this.customerInfo.regUnit && this.customerInfo.email 
-      && (this.areaNeedsStreetAndNumberInfo ? this.customerInfo.street && this.customerInfo.number : true))
+      && (this.areaNeedsAddressInfo ? this.customerInfo.address : true))
       return false;
     else {
       return true;
@@ -141,7 +149,7 @@ export class OrderModal {
 
   getAreas() {
     this.customerInfo.area = null;
-    this.areaNeedsStreetAndNumberInfo = false;
+    this.areaNeedsAddressInfo = false;
     this.areas = [];
     AREAS.forEach(area => {
       if (area[1] == this.customerInfo.regUnit) this.areas.push(area[0]);
@@ -151,8 +159,8 @@ export class OrderModal {
   areaChanged() {
     AREAS.forEach(area => {
       if (area[0] == this.customerInfo.area) {
-        if(area[2]) this.areaNeedsStreetAndNumberInfo = true;
-        else this.areaNeedsStreetAndNumberInfo = false;
+        if(area[2]) this.areaNeedsAddressInfo = true;
+        else this.areaNeedsAddressInfo = false;
       }
     })
   }
