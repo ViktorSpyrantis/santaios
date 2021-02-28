@@ -32,6 +32,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { CommunicationPage } from 'src/pages/communication/communication';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
     ProductPage,
     CartModal,
     OrderModal,
-    CtaButton
+    CtaButton,
+    CommunicationPage
   ],
   entryComponents: [
     // CategoryButton,
